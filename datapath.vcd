@@ -1,0 +1,393 @@
+$date
+	Sun Aug 16 18:58:45 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module datapath_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+$scope module dut $end
+$var wire 1 ! clk $end
+$var wire 1 " reset $end
+$var wire 32 # write_data [31:0] $end
+$var wire 1 $ write_enable $end
+$var wire 5 % rs2 [4:0] $end
+$var wire 5 & rs1 [4:0] $end
+$var wire 1 ' reg_write $end
+$var wire 32 ( read_data2 [31:0] $end
+$var wire 32 ) read_data1 [31:0] $end
+$var wire 5 * rd [4:0] $end
+$var wire 32 + pc [31:0] $end
+$var wire 32 , instruction [31:0] $end
+$var wire 32 - alu_result [31:0] $end
+$var wire 3 . alu_control [2:0] $end
+$scope module alu_unit $end
+$var wire 32 / b [31:0] $end
+$var wire 3 0 alu_control [2:0] $end
+$var wire 32 1 a [31:0] $end
+$var reg 32 2 result [31:0] $end
+$upscope $end
+$scope module control_unit_inst $end
+$var wire 3 3 alu_control [2:0] $end
+$var reg 1 ' reg_write $end
+$upscope $end
+$scope module decoder_unit $end
+$var wire 5 4 rs2 [4:0] $end
+$var wire 5 5 rs1 [4:0] $end
+$var wire 5 6 rd [4:0] $end
+$var wire 7 7 opcode [6:0] $end
+$var wire 32 8 instruction [31:0] $end
+$var wire 7 9 funct7 [6:0] $end
+$var wire 3 : funct3 [2:0] $end
+$var reg 3 ; alu_control [2:0] $end
+$upscope $end
+$scope module imem $end
+$var wire 32 < address [31:0] $end
+$var reg 32 = instruction [31:0] $end
+$upscope $end
+$scope module pc_unit $end
+$var wire 1 ! clk $end
+$var wire 1 " reset $end
+$var reg 32 > pc [31:0] $end
+$upscope $end
+$scope module reg_file $end
+$var wire 1 ! clk $end
+$var wire 5 ? rd [4:0] $end
+$var wire 1 " reset $end
+$var wire 5 @ rs1 [4:0] $end
+$var wire 5 A rs2 [4:0] $end
+$var wire 32 B write_data [31:0] $end
+$var wire 1 $ write_enable $end
+$var reg 32 C read_data1 [31:0] $end
+$var reg 32 D read_data2 [31:0] $end
+$var integer 32 E i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx E
+bx D
+bx C
+b0 B
+bx A
+bx @
+bx ?
+bx >
+bx =
+bx <
+b0 ;
+bx :
+bx 9
+bx 8
+bx 7
+bx 6
+bx 5
+bx 4
+b0 3
+b0 2
+bx 1
+b0 0
+bx /
+b0 .
+b0 -
+bx ,
+bx +
+bx *
+bx )
+bx (
+0'
+bx &
+bx %
+0$
+b0 #
+1"
+0!
+$end
+#5
+b11110 #
+b11110 B
+b11110 -
+b11110 2
+1$
+1'
+b10100 (
+b10100 /
+b10100 D
+b1010 )
+b1010 1
+b1010 C
+b1 .
+b1 0
+b1 3
+b1 ;
+b0 9
+b10 %
+b10 4
+b10 A
+b1 &
+b1 5
+b1 @
+b0 :
+b11 *
+b11 6
+b11 ?
+b110011 7
+b1000001000000110110011 ,
+b1000001000000110110011 8
+b1000001000000110110011 =
+b0 +
+b0 <
+b0 >
+b100000 E
+1!
+#10
+0!
+#12
+0"
+#15
+1$
+1'
+b10100 #
+b10100 B
+b10100 -
+b10100 2
+b10 .
+b10 0
+b10 3
+b10 ;
+b1010 (
+b1010 /
+b1010 D
+b11110 )
+b11110 1
+b11110 C
+b100000 9
+b1 %
+b1 4
+b1 A
+b11 &
+b11 5
+b11 @
+b100 *
+b100 6
+b100 ?
+b1000000000100011000001000110011 ,
+b1000000000100011000001000110011 8
+b1000000000100011000001000110011 =
+b100 +
+b100 <
+b100 >
+1!
+#20
+0!
+#25
+1$
+1'
+b10100 (
+b10100 /
+b10100 D
+b11 .
+b11 0
+b11 3
+b11 ;
+b0 9
+b100 %
+b100 4
+b100 A
+b111 :
+b101 *
+b101 6
+b101 ?
+b10000011111001010110011 ,
+b10000011111001010110011 8
+b10000011111001010110011 =
+b1000 +
+b1000 <
+b1000 >
+1!
+#30
+0!
+#35
+b11110 #
+b11110 B
+b11110 -
+b11110 2
+1$
+1'
+b100 .
+b100 0
+b100 3
+b100 ;
+b110 :
+b110 *
+b110 6
+b110 ?
+b10000011110001100110011 ,
+b10000011110001100110011 8
+b10000011110001100110011 =
+b1100 +
+b1100 <
+b1100 >
+1!
+#40
+0!
+#45
+b0 #
+b0 B
+b0 -
+b0 2
+0$
+0'
+bx (
+bx /
+bx D
+bx )
+bx 1
+bx C
+b0 .
+b0 0
+b0 3
+b0 ;
+bx 9
+bx %
+bx 4
+bx A
+bx &
+bx 5
+bx @
+bx :
+bx *
+bx 6
+bx ?
+bx 7
+bx ,
+bx 8
+bx =
+b10000 +
+b10000 <
+b10000 >
+1!
+#50
+0!
+#55
+b10100 +
+b10100 <
+b10100 >
+1!
+#60
+0!
+#65
+b11000 +
+b11000 <
+b11000 >
+1!
+#70
+0!
+#75
+b11100 +
+b11100 <
+b11100 >
+1!
+#80
+0!
+#85
+b100000 +
+b100000 <
+b100000 >
+1!
+#90
+0!
+#95
+b100100 +
+b100100 <
+b100100 >
+1!
+#100
+0!
+#105
+b101000 +
+b101000 <
+b101000 >
+1!
+#110
+0!
+#115
+b101100 +
+b101100 <
+b101100 >
+1!
+#120
+0!
+#125
+b110000 +
+b110000 <
+b110000 >
+1!
+#130
+0!
+#135
+b110100 +
+b110100 <
+b110100 >
+1!
+#140
+0!
+#145
+b111000 +
+b111000 <
+b111000 >
+1!
+#150
+0!
+#155
+b111100 +
+b111100 <
+b111100 >
+1!
+#160
+0!
+#165
+b1000000 +
+b1000000 <
+b1000000 >
+1!
+#170
+0!
+#175
+b1000100 +
+b1000100 <
+b1000100 >
+1!
+#180
+0!
+#185
+b1001000 +
+b1001000 <
+b1001000 >
+1!
+#190
+0!
+#195
+b1001100 +
+b1001100 <
+b1001100 >
+1!
+#200
+0!
+#205
+b1010000 +
+b1010000 <
+b1010000 >
+1!
+#210
+0!
+#212
