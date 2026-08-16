@@ -1,0 +1,9534 @@
+$date
+	Mon Aug 17 01:20:15 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module pipeline_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+$var integer 32 # fail_count [31:0] $end
+$var integer 32 $ pass_count [31:0] $end
+$scope module dut $end
+$var wire 1 ! clk $end
+$var wire 1 % ex_branch_taken $end
+$var wire 1 & exmem_flush $end
+$var wire 1 ' id_ex_flush $end
+$var wire 1 ( if_id_flush $end
+$var wire 1 ) mem_branch_taken $end
+$var wire 1 " reset $end
+$var wire 1 * wb_write_enable $end
+$var wire 32 + wb_write_data [31:0] $end
+$var wire 5 , wb_rd [4:0] $end
+$var wire 32 - wb_pc_plus_4 [31:0] $end
+$var wire 32 . wb_memory_read_data [31:0] $end
+$var wire 1 / wb_mem_to_reg $end
+$var wire 1 0 wb_jump $end
+$var wire 1 1 wb_jalr $end
+$var wire 32 2 wb_alu_result [31:0] $end
+$var wire 1 3 pc_write $end
+$var wire 32 4 mem_pc_target [31:0] $end
+$var wire 32 5 mem_memory_read_data [31:0] $end
+$var wire 32 6 if_pc_plus_4 [31:0] $end
+$var wire 32 7 if_next_pc [31:0] $end
+$var wire 32 8 if_instruction [31:0] $end
+$var wire 1 9 if_id_stall $end
+$var wire 5 : id_rs2 [4:0] $end
+$var wire 5 ; id_rs1 [4:0] $end
+$var wire 1 < id_reg_write $end
+$var wire 32 = id_read_data2 [31:0] $end
+$var wire 32 > id_read_data1 [31:0] $end
+$var wire 5 ? id_rd [4:0] $end
+$var wire 32 @ id_pc_plus_4 [31:0] $end
+$var wire 32 A id_pc [31:0] $end
+$var wire 1 B id_mem_write $end
+$var wire 1 C id_mem_to_reg $end
+$var wire 1 D id_mem_read $end
+$var wire 1 E id_jump $end
+$var wire 1 F id_jalr $end
+$var wire 32 G id_instruction [31:0] $end
+$var wire 32 H id_immediate [31:0] $end
+$var wire 1 I id_ex_flush_hazard $end
+$var wire 1 J id_branch_ne $end
+$var wire 1 K id_branch $end
+$var wire 1 L id_alu_src $end
+$var wire 3 M id_alu_control [2:0] $end
+$var wire 2 N forward_b [1:0] $end
+$var wire 2 O forward_a [1:0] $end
+$var wire 1 P exmem_zero $end
+$var wire 1 Q exmem_reg_write $end
+$var wire 32 R exmem_read_data2 [31:0] $end
+$var wire 5 S exmem_rd [4:0] $end
+$var wire 32 T exmem_pc_plus_4 [31:0] $end
+$var wire 1 U exmem_mem_write $end
+$var wire 1 V exmem_mem_to_reg $end
+$var wire 1 W exmem_mem_read $end
+$var wire 1 X exmem_jump $end
+$var wire 1 Y exmem_jalr $end
+$var wire 32 Z exmem_branch_target [31:0] $end
+$var wire 1 [ exmem_branch_ne $end
+$var wire 1 \ exmem_branch $end
+$var wire 32 ] exmem_alu_result [31:0] $end
+$var wire 1 ^ ex_zero $end
+$var wire 5 _ ex_rs2 [4:0] $end
+$var wire 5 ` ex_rs1 [4:0] $end
+$var wire 1 a ex_reg_write $end
+$var wire 32 b ex_read_data2_raw [31:0] $end
+$var wire 32 c ex_read_data1_raw [31:0] $end
+$var wire 5 d ex_rd [4:0] $end
+$var wire 32 e ex_pc_plus_4 [31:0] $end
+$var wire 32 f ex_pc [31:0] $end
+$var wire 1 g ex_mem_write $end
+$var wire 1 h ex_mem_to_reg $end
+$var wire 1 i ex_mem_read $end
+$var wire 1 j ex_jump $end
+$var wire 1 k ex_jalr $end
+$var wire 32 l ex_immediate [31:0] $end
+$var wire 32 m ex_branch_target [31:0] $end
+$var wire 1 n ex_branch_ne $end
+$var wire 1 o ex_branch $end
+$var wire 1 p ex_alu_src $end
+$var wire 32 q ex_alu_result [31:0] $end
+$var wire 3 r ex_alu_control [2:0] $end
+$var wire 32 s ex_alu_b [31:0] $end
+$var reg 32 t ex_alu_a [31:0] $end
+$var reg 32 u ex_alu_b_pre [31:0] $end
+$var reg 32 v if_pc [31:0] $end
+$scope module alu_inst $end
+$var wire 32 w a [31:0] $end
+$var wire 32 x b [31:0] $end
+$var wire 3 y alu_control [2:0] $end
+$var reg 32 z result [31:0] $end
+$upscope $end
+$scope module ctrl_inst $end
+$var wire 7 { opcode [6:0] $end
+$var wire 32 | instruction [31:0] $end
+$var wire 3 } funct3 [2:0] $end
+$var reg 1 L alu_src $end
+$var reg 1 K branch $end
+$var reg 1 J branch_ne $end
+$var reg 1 F jalr $end
+$var reg 1 E jump $end
+$var reg 1 D mem_read $end
+$var reg 1 C mem_to_reg $end
+$var reg 1 B mem_write $end
+$var reg 1 < reg_write $end
+$upscope $end
+$scope module data_mem_inst $end
+$var wire 1 ! clk $end
+$var wire 1 " reset $end
+$var wire 32 ~ write_data [31:0] $end
+$var wire 1 U mem_write $end
+$var wire 1 W mem_read $end
+$var wire 32 !" address [31:0] $end
+$var reg 32 "" read_data [31:0] $end
+$var integer 32 #" i [31:0] $end
+$upscope $end
+$scope module decoder_inst $end
+$var wire 5 $" rs2 [4:0] $end
+$var wire 5 %" rs1 [4:0] $end
+$var wire 5 &" rd [4:0] $end
+$var wire 7 '" opcode [6:0] $end
+$var wire 32 (" instruction [31:0] $end
+$var wire 7 )" funct7 [6:0] $end
+$var wire 3 *" funct3 [2:0] $end
+$var reg 3 +" alu_control [2:0] $end
+$upscope $end
+$scope module ex_mem_reg $end
+$var wire 1 ! clk $end
+$var wire 32 ," ex_alu_result [31:0] $end
+$var wire 32 -" ex_branch_target [31:0] $end
+$var wire 32 ." ex_read_data2 [31:0] $end
+$var wire 1 ^ ex_zero $end
+$var wire 1 & flush $end
+$var wire 1 " reset $end
+$var wire 1 a ex_reg_write $end
+$var wire 5 /" ex_rd [4:0] $end
+$var wire 32 0" ex_pc_plus_4 [31:0] $end
+$var wire 1 g ex_mem_write $end
+$var wire 1 h ex_mem_to_reg $end
+$var wire 1 i ex_mem_read $end
+$var wire 1 j ex_jump $end
+$var wire 1 k ex_jalr $end
+$var wire 1 n ex_branch_ne $end
+$var wire 1 o ex_branch $end
+$var reg 32 1" mem_alu_result [31:0] $end
+$var reg 1 \ mem_branch $end
+$var reg 1 [ mem_branch_ne $end
+$var reg 32 2" mem_branch_target [31:0] $end
+$var reg 1 Y mem_jalr $end
+$var reg 1 X mem_jump $end
+$var reg 1 W mem_mem_read $end
+$var reg 1 V mem_mem_to_reg $end
+$var reg 1 U mem_mem_write $end
+$var reg 32 3" mem_pc_plus_4 [31:0] $end
+$var reg 5 4" mem_rd [4:0] $end
+$var reg 32 5" mem_read_data2 [31:0] $end
+$var reg 1 Q mem_reg_write $end
+$var reg 1 P mem_zero $end
+$upscope $end
+$scope module fwd_unit $end
+$var wire 5 6" exmem_rd [4:0] $end
+$var wire 1 Q exmem_reg_write $end
+$var wire 1 * memwb_reg_write $end
+$var wire 5 7" memwb_rd [4:0] $end
+$var wire 5 8" ex_rs2 [4:0] $end
+$var wire 5 9" ex_rs1 [4:0] $end
+$var reg 2 :" forward_a [1:0] $end
+$var reg 2 ;" forward_b [1:0] $end
+$upscope $end
+$scope module hazard_inst $end
+$var wire 1 I id_ex_flush $end
+$var wire 1 9 if_id_stall $end
+$var wire 5 <" ifid_rs1 [4:0] $end
+$var wire 5 =" ifid_rs2 [4:0] $end
+$var wire 1 >" load_use_hazard $end
+$var wire 1 3 pc_write $end
+$var wire 5 ?" idex_rd [4:0] $end
+$var wire 1 i idex_mem_read $end
+$upscope $end
+$scope module id_ex_reg $end
+$var wire 1 ! clk $end
+$var wire 1 ' flush $end
+$var wire 3 @" id_alu_control [2:0] $end
+$var wire 1 L id_alu_src $end
+$var wire 1 K id_branch $end
+$var wire 1 J id_branch_ne $end
+$var wire 1 F id_jalr $end
+$var wire 1 E id_jump $end
+$var wire 1 D id_mem_read $end
+$var wire 1 C id_mem_to_reg $end
+$var wire 1 B id_mem_write $end
+$var wire 5 A" id_rd [4:0] $end
+$var wire 1 < id_reg_write $end
+$var wire 5 B" id_rs1 [4:0] $end
+$var wire 5 C" id_rs2 [4:0] $end
+$var wire 1 " reset $end
+$var wire 32 D" id_read_data2 [31:0] $end
+$var wire 32 E" id_read_data1 [31:0] $end
+$var wire 32 F" id_pc_plus_4 [31:0] $end
+$var wire 32 G" id_pc [31:0] $end
+$var wire 32 H" id_immediate [31:0] $end
+$var reg 3 I" ex_alu_control [2:0] $end
+$var reg 1 p ex_alu_src $end
+$var reg 1 o ex_branch $end
+$var reg 1 n ex_branch_ne $end
+$var reg 32 J" ex_immediate [31:0] $end
+$var reg 1 k ex_jalr $end
+$var reg 1 j ex_jump $end
+$var reg 1 i ex_mem_read $end
+$var reg 1 h ex_mem_to_reg $end
+$var reg 1 g ex_mem_write $end
+$var reg 32 K" ex_pc [31:0] $end
+$var reg 32 L" ex_pc_plus_4 [31:0] $end
+$var reg 5 M" ex_rd [4:0] $end
+$var reg 32 N" ex_read_data1 [31:0] $end
+$var reg 32 O" ex_read_data2 [31:0] $end
+$var reg 1 a ex_reg_write $end
+$var reg 5 P" ex_rs1 [4:0] $end
+$var reg 5 Q" ex_rs2 [4:0] $end
+$upscope $end
+$scope module if_id_reg $end
+$var wire 1 ! clk $end
+$var wire 1 ( flush $end
+$var wire 32 R" if_pc [31:0] $end
+$var wire 32 S" if_pc_plus_4 [31:0] $end
+$var wire 1 " reset $end
+$var wire 1 9 stall $end
+$var wire 32 T" if_instruction [31:0] $end
+$var reg 32 U" id_instruction [31:0] $end
+$var reg 32 V" id_pc [31:0] $end
+$var reg 32 W" id_pc_plus_4 [31:0] $end
+$upscope $end
+$scope module imem $end
+$var wire 32 X" address [31:0] $end
+$var reg 32 Y" instruction [31:0] $end
+$scope begin $unm_blk_29 $end
+$var integer 32 Z" k [31:0] $end
+$upscope $end
+$upscope $end
+$scope module imm_gen_inst $end
+$var wire 32 [" instruction [31:0] $end
+$var wire 7 \" opcode [6:0] $end
+$var wire 32 ]" imm_s [31:0] $end
+$var wire 32 ^" imm_j [31:0] $end
+$var wire 32 _" imm_i [31:0] $end
+$var wire 32 `" imm_b [31:0] $end
+$var reg 32 a" immediate [31:0] $end
+$upscope $end
+$scope module mem_wb_reg $end
+$var wire 1 ! clk $end
+$var wire 32 b" mem_alu_result [31:0] $end
+$var wire 1 Y mem_jalr $end
+$var wire 1 X mem_jump $end
+$var wire 1 V mem_mem_to_reg $end
+$var wire 32 c" mem_memory_read_data [31:0] $end
+$var wire 32 d" mem_pc_plus_4 [31:0] $end
+$var wire 5 e" mem_rd [4:0] $end
+$var wire 1 Q mem_reg_write $end
+$var wire 1 " reset $end
+$var reg 32 f" wb_alu_result [31:0] $end
+$var reg 1 1 wb_jalr $end
+$var reg 1 0 wb_jump $end
+$var reg 1 / wb_mem_to_reg $end
+$var reg 32 g" wb_memory_read_data [31:0] $end
+$var reg 32 h" wb_pc_plus_4 [31:0] $end
+$var reg 5 i" wb_rd [4:0] $end
+$var reg 1 * wb_reg_write $end
+$upscope $end
+$scope module reg_file_inst $end
+$var wire 1 ! clk $end
+$var wire 5 j" rd [4:0] $end
+$var wire 1 " reset $end
+$var wire 5 k" rs1 [4:0] $end
+$var wire 5 l" rs2 [4:0] $end
+$var wire 32 m" write_data [31:0] $end
+$var wire 1 * write_enable $end
+$var reg 32 n" read_data1 [31:0] $end
+$var reg 32 o" read_data2 [31:0] $end
+$var integer 32 p" i [31:0] $end
+$upscope $end
+$upscope $end
+$scope task check_mem $end
+$upscope $end
+$scope task check_reg $end
+$upscope $end
+$scope task clear_imem $end
+$upscope $end
+$scope task load_inst $end
+$upscope $end
+$scope task reset_dut $end
+$upscope $end
+$scope task run_cycles $end
+$upscope $end
+$scope task test_add $end
+$upscope $end
+$scope task test_addi $end
+$upscope $end
+$scope task test_and $end
+$upscope $end
+$scope task test_beq $end
+$upscope $end
+$scope task test_bne $end
+$upscope $end
+$scope task test_fwd_ex_ex $end
+$upscope $end
+$scope task test_fwd_mem_ex $end
+$upscope $end
+$scope task test_jal $end
+$upscope $end
+$scope task test_jalr $end
+$upscope $end
+$scope task test_load_use_hazard $end
+$upscope $end
+$scope task test_lw $end
+$upscope $end
+$scope task test_or $end
+$upscope $end
+$scope task test_sub $end
+$upscope $end
+$scope task test_sw $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx p"
+bx o"
+bx n"
+bx m"
+bx l"
+bx k"
+bx j"
+bx i"
+bx h"
+bx g"
+bx f"
+bx e"
+bx d"
+b0 c"
+bx b"
+bx a"
+bx0 `"
+bx _"
+bx0 ^"
+bx ]"
+bx \"
+bx ["
+b100000 Z"
+bx Y"
+bx X"
+bx W"
+bx V"
+bx U"
+bx T"
+bx S"
+bx R"
+bx Q"
+bx P"
+bx O"
+bx N"
+bx M"
+bx L"
+bx K"
+bx J"
+bx I"
+bx H"
+bx G"
+bx F"
+bx E"
+bx D"
+bx C"
+bx B"
+bx A"
+b0 @"
+bx ?"
+x>"
+bx ="
+bx <"
+b0 ;"
+b0 :"
+bx 9"
+bx 8"
+bx 7"
+bx 6"
+bx 5"
+bx 4"
+bx 3"
+bx 2"
+bx 1"
+bx 0"
+bx /"
+bx ."
+bx -"
+b0 ,"
+b0 +"
+bx *"
+bx )"
+bx ("
+bx '"
+bx &"
+bx %"
+bx $"
+bx #"
+b0 ""
+bx !"
+bx ~
+bx }
+bx |
+bx {
+b0 z
+bx y
+bx x
+bx w
+bx v
+bx u
+bx t
+bx s
+bx r
+b0 q
+xp
+xo
+xn
+bx m
+bx l
+xk
+xj
+xi
+xh
+xg
+bx f
+bx e
+bx d
+bx c
+bx b
+xa
+bx `
+bx _
+1^
+bx ]
+x\
+x[
+bx Z
+xY
+xX
+xW
+xV
+xU
+bx T
+bx S
+bx R
+xQ
+xP
+b0 O
+b0 N
+b0 M
+0L
+0K
+0J
+xI
+bx H
+bx G
+0F
+0E
+0D
+0C
+0B
+bx A
+bx @
+bx ?
+bx >
+bx =
+0<
+bx ;
+bx :
+x9
+bx 8
+bx 7
+bx 6
+b0 5
+bx 4
+x3
+bx 2
+x1
+x0
+x/
+bx .
+bx -
+bx ,
+bx +
+x*
+x)
+x(
+x'
+0&
+x%
+b0 $
+b0 #
+1"
+0!
+$end
+#5000
+0'
+0%
+0(
+0)
+b0 `"
+b0 ^"
+13
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+b0 >
+b0 E"
+b0 n"
+1L
+1<
+09
+0I
+0>"
+b100 7
+b10011 \"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 *"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b0 }
+b10011 {
+b0 s
+b0 x
+b0 4
+b0 t
+b0 w
+b0 u
+b0 ."
+b0 +
+b0 m"
+b1000001000000110110011 8
+b1000001000000110110011 T"
+b1000001000000110110011 Y"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0k
+0j
+0n
+0o
+0h
+0g
+0i
+0p
+0a
+b0 r
+b0 y
+b0 I"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 m
+b0 -"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b0 c
+b0 N"
+b0 e
+b0 0"
+b0 L"
+b0 f
+b0 K"
+0Y
+0X
+0[
+0\
+0V
+0U
+0W
+0Q
+b0 Z
+b0 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+0P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b0 T
+b0 3"
+b0 d"
+01
+00
+0/
+0*
+b0 -
+b0 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 .
+b0 g"
+b0 2
+b0 f"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#10000
+0!
+#15000
+b100000000 #"
+b100000 p"
+1!
+#20000
+0"
+0!
+#25000
+b100000000010 `"
+b1000000000000010 ^"
+b10 H
+b10 H"
+b10 a"
+b10 _"
+b11 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b1010 >
+b1010 E"
+b1010 n"
+0L
+1<
+b110011 \"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b11 ?
+b11 &"
+b11 A"
+b110011 '"
+b110011 {
+b1000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1000001000000110110011 G
+b1000001000000110110011 |
+b1000001000000110110011 ("
+b1000001000000110110011 U"
+b1000001000000110110011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#30000
+0!
+#35000
+b0 `"
+b0 ^"
+0^
+b11110 q
+b11110 z
+b11110 ,"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+b0 >
+b0 E"
+b0 n"
+1L
+1<
+b1100 7
+b10100 s
+b10100 x
+b10100 u
+b10100 ."
+b1010 t
+b1010 w
+b10011 \"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b10011 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+0p
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b10 _
+b10 8"
+b10 Q"
+b1 `
+b1 9"
+b1 P"
+b10 m
+b10 -"
+b10 l
+b10 J"
+b10100 b
+b10100 O"
+b1010 c
+b1010 N"
+b100 e
+b100 0"
+b100 L"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#40000
+0!
+#45000
+1^
+b0 q
+b0 z
+b0 ,"
+b0 s
+b0 x
+b10 4
+b0 t
+b0 w
+b0 u
+b0 ."
+b10000 7
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1p
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b10 Z
+b10 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b10100 R
+b10100 ~
+b10100 5"
+0P
+b11110 ]
+b11110 !"
+b11110 1"
+b11110 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#50000
+0!
+#55000
+b11110 +
+b11110 m"
+b10100 7
+b100 4
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b11110 2
+b11110 f"
+b100 Z
+b100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b1000 T
+b1000 3"
+b1000 d"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#60000
+0!
+#65000
+b0 +
+b0 m"
+b1000 4
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1000 Z
+b1000 2"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#70000
+0!
+#75000
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b1100 Z
+b1100 2"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#80000
+0!
+#85000
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#90000
+0!
+#95000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1"
+b1 $
+1!
+#100000
+0!
+#105000
+b0 4
+b100 7
+b1000000000100010000000110110011 8
+b1000000000100010000000110110011 T"
+b1000000000100010000000110110011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#110000
+0!
+#115000
+b100000000 #"
+b100000 p"
+1!
+#120000
+0"
+0!
+#125000
+b110000000010 `"
+b10000110000000000 ^"
+b10000000001 H
+b10000000001 H"
+b10000000001 a"
+b10000000001 _"
+b10000000011 ]"
+b1010 =
+b1010 D"
+b1010 o"
+b10100 >
+b10100 E"
+b10100 n"
+b1 M
+b1 +"
+b1 @"
+0L
+1<
+b110011 \"
+b100000 )"
+b1 :
+b1 $"
+b1 ="
+b1 C"
+b1 l"
+b10 ;
+b10 %"
+b10 <"
+b10 B"
+b10 k"
+b11 ?
+b11 &"
+b11 A"
+b110011 '"
+b110011 {
+b1000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1000000000100010000000110110011 G
+b1000000000100010000000110110011 |
+b1000000000100010000000110110011 ("
+b1000000000100010000000110110011 U"
+b1000000000100010000000110110011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#130000
+0!
+#135000
+b0 `"
+b0 ^"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+b0 >
+b0 E"
+b0 n"
+b0 M
+b0 +"
+b0 @"
+1L
+1<
+b1100 7
+0^
+b1010 q
+b1010 z
+b1010 ,"
+b1010 s
+b1010 x
+b1010 u
+b1010 ."
+b10100 t
+b10100 w
+b10011 \"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b10011 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+0p
+b1 r
+b1 y
+b1 I"
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b1 _
+b1 8"
+b1 Q"
+b10 `
+b10 9"
+b10 P"
+b10000000001 m
+b10000000001 -"
+b10000000001 l
+b10000000001 J"
+b1010 b
+b1010 O"
+b10100 c
+b10100 N"
+b100 e
+b100 0"
+b100 L"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#140000
+0!
+#145000
+1^
+b0 q
+b0 z
+b0 ,"
+b0 s
+b0 x
+b10000000001 4
+b0 t
+b0 w
+b0 u
+b0 ."
+b10000 7
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1p
+b0 r
+b0 y
+b0 I"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b10000000001 Z
+b10000000001 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b1010 R
+b1010 ~
+b1010 5"
+0P
+b1010 ]
+b1010 !"
+b1010 1"
+b1010 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#150000
+0!
+#155000
+b1010 +
+b1010 m"
+b10100 7
+b100 4
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b1010 2
+b1010 f"
+b100 Z
+b100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b1000 T
+b1000 3"
+b1000 d"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#160000
+0!
+#165000
+b0 +
+b0 m"
+b1000 4
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1000 Z
+b1000 2"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#170000
+0!
+#175000
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b1100 Z
+b1100 2"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#180000
+0!
+#185000
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#190000
+0!
+#195000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1"
+b10 $
+1!
+#200000
+0!
+#205000
+b0 4
+b100 7
+b1000001111000110110011 8
+b1000001111000110110011 T"
+b1000001111000110110011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#210000
+0!
+#215000
+b100000000 #"
+b100000 p"
+1!
+#220000
+0"
+0!
+#225000
+b100000000010 `"
+b1111000000000010 ^"
+b10 H
+b10 H"
+b10 a"
+b10 _"
+b11 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b1010 >
+b1010 E"
+b1010 n"
+b10 M
+b10 +"
+b10 @"
+0L
+1<
+b110011 \"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b111 *"
+b11 ?
+b11 &"
+b11 A"
+b110011 '"
+b111 }
+b110011 {
+b1000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1000001111000110110011 G
+b1000001111000110110011 |
+b1000001111000110110011 ("
+b1000001111000110110011 U"
+b1000001111000110110011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#230000
+0!
+#235000
+b0 `"
+b0 ^"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+b0 >
+b0 E"
+b0 n"
+b0 M
+b0 +"
+b0 @"
+1L
+1<
+b1100 7
+b10100 s
+b10100 x
+b10100 u
+b10100 ."
+b1010 t
+b1010 w
+b10011 \"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 *"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b0 }
+b10011 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+0p
+b10 r
+b10 y
+b10 I"
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b10 _
+b10 8"
+b10 Q"
+b1 `
+b1 9"
+b1 P"
+b10 m
+b10 -"
+b10 l
+b10 J"
+b10100 b
+b10100 O"
+b1010 c
+b1010 N"
+b100 e
+b100 0"
+b100 L"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#240000
+0!
+#245000
+b0 s
+b0 x
+1^
+b0 q
+b0 z
+b0 ,"
+b0 u
+b0 ."
+b0 t
+b0 w
+b10 4
+b10000 7
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1p
+b0 r
+b0 y
+b0 I"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b10 Z
+b10 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b10100 R
+b10100 ~
+b10100 5"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#250000
+0!
+#255000
+b10100 7
+b100 4
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b100 Z
+b100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+b1000 T
+b1000 3"
+b1000 d"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#260000
+0!
+#265000
+b1000 4
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1000 Z
+b1000 2"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#270000
+0!
+#275000
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b1100 Z
+b1100 2"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#280000
+0!
+#285000
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#290000
+0!
+#295000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1"
+b11 $
+1!
+#300000
+0!
+#305000
+b0 4
+b100 7
+b1000001110000110110011 8
+b1000001110000110110011 T"
+b1000001110000110110011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#310000
+0!
+#315000
+b100000000 #"
+b100000 p"
+1!
+#320000
+0"
+0!
+#325000
+b100000000010 `"
+b1110000000000010 ^"
+b10 H
+b10 H"
+b10 a"
+b10 _"
+b11 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b1010 >
+b1010 E"
+b1010 n"
+b11 M
+b11 +"
+b11 @"
+0L
+1<
+b110011 \"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b110 *"
+b11 ?
+b11 &"
+b11 A"
+b110011 '"
+b110 }
+b110011 {
+b1000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1000001110000110110011 G
+b1000001110000110110011 |
+b1000001110000110110011 ("
+b1000001110000110110011 U"
+b1000001110000110110011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#330000
+0!
+#335000
+b0 `"
+b0 ^"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+b0 >
+b0 E"
+b0 n"
+b0 M
+b0 +"
+b0 @"
+1L
+1<
+b1100 7
+0^
+b11110 q
+b11110 z
+b11110 ,"
+b10100 s
+b10100 x
+b10100 u
+b10100 ."
+b1010 t
+b1010 w
+b10011 \"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 *"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b0 }
+b10011 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+0p
+b11 r
+b11 y
+b11 I"
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b10 _
+b10 8"
+b10 Q"
+b1 `
+b1 9"
+b1 P"
+b10 m
+b10 -"
+b10 l
+b10 J"
+b10100 b
+b10100 O"
+b1010 c
+b1010 N"
+b100 e
+b100 0"
+b100 L"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#340000
+0!
+#345000
+1^
+b0 s
+b0 x
+b0 q
+b0 z
+b0 ,"
+b10 4
+b0 t
+b0 w
+b0 u
+b0 ."
+b10000 7
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1p
+b0 r
+b0 y
+b0 I"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b10 Z
+b10 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b10100 R
+b10100 ~
+b10100 5"
+0P
+b11110 ]
+b11110 !"
+b11110 1"
+b11110 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#350000
+0!
+#355000
+b11110 +
+b11110 m"
+b10100 7
+b100 4
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b11110 2
+b11110 f"
+b100 Z
+b100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b1000 T
+b1000 3"
+b1000 d"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#360000
+0!
+#365000
+b0 +
+b0 m"
+b1000 4
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1000 Z
+b1000 2"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#370000
+0!
+#375000
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b1100 Z
+b1100 2"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#380000
+0!
+#385000
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#390000
+0!
+#395000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1"
+b100 $
+1!
+#400000
+0!
+#405000
+b0 4
+b100 7
+b10100001000000110010011 8
+b10100001000000110010011 T"
+b10100001000000110010011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#410000
+0!
+#415000
+b100000000 #"
+b100000 p"
+1!
+#420000
+0"
+0!
+#425000
+b101 H
+b101 H"
+b101 a"
+b100000000010 `"
+b1000100000000100 ^"
+b101 _"
+b11 ]"
+b1010 >
+b1010 E"
+b1010 n"
+b101 :
+b101 $"
+b101 ="
+b101 C"
+b101 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b11 ?
+b11 &"
+b11 A"
+b1000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b10100001000000110010011 G
+b10100001000000110010011 |
+b10100001000000110010011 ("
+b10100001000000110010011 U"
+b10100001000000110010011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#430000
+0!
+#435000
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+0^
+b1111 q
+b1111 z
+b1111 ,"
+b0 _"
+b0 ]"
+b0 >
+b0 E"
+b0 n"
+b1100 7
+b101 s
+b101 x
+b1010 t
+b1010 w
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 ?
+b0 &"
+b0 A"
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b101 _
+b101 8"
+b101 Q"
+b1 `
+b1 9"
+b1 P"
+b101 m
+b101 -"
+b101 l
+b101 J"
+b1010 c
+b1010 N"
+b100 e
+b100 0"
+b100 L"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#440000
+0!
+#445000
+1^
+b0 q
+b0 z
+b0 ,"
+b0 s
+b0 x
+b101 4
+b0 t
+b0 w
+b10000 7
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b101 Z
+b101 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+0P
+b1111 ]
+b1111 !"
+b1111 1"
+b1111 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#450000
+0!
+#455000
+b1111 +
+b1111 m"
+b10100 7
+b100 4
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b1111 2
+b1111 f"
+b100 Z
+b100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b1000 T
+b1000 3"
+b1000 d"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#460000
+0!
+#465000
+b0 +
+b0 m"
+b1000 4
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1000 Z
+b1000 2"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#470000
+0!
+#475000
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b1100 Z
+b1100 2"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#480000
+0!
+#485000
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#490000
+0!
+#495000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1"
+b101 $
+1!
+#500000
+0!
+#505000
+b0 4
+b100 7
+b1000001000000110110011 8
+b1000001000000110110011 T"
+b1000001000000110110011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#510000
+0!
+#515000
+b100000000 #"
+b100000 p"
+1!
+#520000
+0"
+0!
+#525000
+b100000000010 `"
+b1000000000000010 ^"
+b10 H
+b10 H"
+b10 a"
+b10 _"
+b11 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b1010 >
+b1010 E"
+b1010 n"
+0L
+1<
+b110011 \"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b11 ?
+b11 &"
+b11 A"
+b110011 '"
+b110011 {
+b1000 7
+b110010000000000001110010011 8
+b110010000000000001110010011 T"
+b110010000000000001110010011 Y"
+b1000001000000110110011 G
+b1000001000000110110011 |
+b1000001000000110110011 ("
+b1000001000000110110011 U"
+b1000001000000110110011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#530000
+0!
+#535000
+b100001100110 `"
+b1100100 ^"
+0^
+b11110 q
+b11110 z
+b11110 ,"
+b1100100 H
+b1100100 H"
+b1100100 a"
+b1100100 _"
+b1100111 ]"
+b0 =
+b0 D"
+b0 o"
+b0 >
+b0 E"
+b0 n"
+1L
+1<
+b1100 7
+b1100111010000000100011 8
+b1100111010000000100011 T"
+b1100111010000000100011 Y"
+b10100 s
+b10100 x
+b10100 u
+b10100 ."
+b1010 t
+b1010 w
+b10011 \"
+b11 )"
+b100 :
+b100 $"
+b100 ="
+b100 C"
+b100 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b111 ?
+b111 &"
+b111 A"
+b10011 '"
+b10011 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+0p
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b10 _
+b10 8"
+b10 Q"
+b1 `
+b1 9"
+b1 P"
+b10 m
+b10 -"
+b10 l
+b10 J"
+b10100 b
+b10100 O"
+b1010 c
+b1010 N"
+b100 e
+b100 0"
+b100 L"
+b110010000000000001110010011 G
+b110010000000000001110010011 |
+b110010000000000001110010011 ("
+b110010000000000001110010011 U"
+b110010000000000001110010011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#540000
+0!
+#545000
+b0 `"
+b111010100000000010 ^"
+b0 H
+b0 H"
+b0 a"
+b11 _"
+b0 ]"
+1B
+1L
+0<
+b1100100 q
+b1100100 z
+b1100100 ,"
+b100011 \"
+b0 )"
+b11 :
+b11 $"
+b11 ="
+b11 C"
+b11 l"
+b111 ;
+b111 %"
+b111 <"
+b111 B"
+b111 k"
+b10 *"
+b0 ?
+b0 &"
+b0 A"
+b100011 '"
+b10 }
+b100011 {
+b1100100 s
+b1100100 x
+b10 4
+b0 t
+b0 w
+b0 u
+b0 ."
+b10000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1100111010000000100011 G
+b1100111010000000100011 |
+b1100111010000000100011 ("
+b1100111010000000100011 U"
+b1100111010000000100011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1p
+b111 d
+b111 /"
+b111 ?"
+b111 M"
+b100 _
+b100 8"
+b100 Q"
+b0 `
+b0 9"
+b0 P"
+b1100100 l
+b1100100 J"
+b0 b
+b0 O"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b1101000 m
+b1101000 -"
+b100 f
+b100 K"
+b10 Z
+b10 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b10100 R
+b10100 ~
+b10100 5"
+0P
+b11110 ]
+b11110 !"
+b11110 1"
+b11110 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#550000
+0!
+#555000
+b11110 u
+b11110 ."
+b0 ^"
+b11110 +
+b11110 m"
+b0 _"
+1<
+0B
+1L
+b10100 7
+b1101000 4
+b1100100 t
+b1100100 w
+b1 N
+b1 ;"
+b10 O
+b10 :"
+b0 s
+b0 x
+b10011 \"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 *"
+b10011 '"
+b0 }
+b10011 {
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b11110 2
+b11110 f"
+b1101000 Z
+b1101000 2"
+b111 S
+b111 4"
+b111 6"
+b111 e"
+b0 R
+b0 ~
+b0 5"
+b1100100 ]
+b1100100 !"
+b1100100 1"
+b1100100 b"
+b1000 T
+b1000 3"
+b1000 d"
+1g
+0a
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b11 _
+b11 8"
+b11 Q"
+b111 `
+b111 9"
+b111 P"
+b0 l
+b0 J"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#560000
+0!
+#565000
+1^
+b0 q
+b0 z
+b0 ,"
+b0 u
+b0 ."
+b0 t
+b0 w
+b1100100 +
+b1100100 m"
+b1000 4
+b0 N
+b0 ;"
+b0 O
+b0 :"
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+0g
+1a
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+1U
+0Q
+b1000 Z
+b1000 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b11110 R
+b11110 ~
+b11110 5"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b111 ,
+b111 7"
+b111 i"
+b111 j"
+b1100100 2
+b1100100 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#570000
+0!
+#575000
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+0*
+b1100 -
+b1100 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+0U
+1Q
+b1100 Z
+b1100 2"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#580000
+0!
+#585000
+b0 +
+b0 m"
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+1*
+b10000 -
+b10000 h"
+b0 2
+b0 f"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#590000
+0!
+#595000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1!
+#600000
+0!
+#605000
+b11000 4
+b101000 7
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b11000 -
+b11000 h"
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+1!
+#610000
+0!
+#615000
+b101100 7
+b11100 4
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+b11100 -
+b11100 h"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+1!
+#620000
+0!
+#625000
+b100000 4
+b110000 7
+b101100 @
+b101100 F"
+b101100 W"
+b101000 A
+b101000 G"
+b101000 V"
+b101000 e
+b101000 0"
+b101000 L"
+b100100 m
+b100100 -"
+b100100 f
+b100100 K"
+b100000 Z
+b100000 2"
+b100100 T
+b100100 3"
+b100100 d"
+b100000 -
+b100000 h"
+b110000 6
+b110000 S"
+b101100 v
+b101100 R"
+b101100 X"
+1!
+#630000
+0!
+#635000
+b110100 7
+b100100 4
+b110100 6
+b110100 S"
+b110000 v
+b110000 R"
+b110000 X"
+b100100 -
+b100100 h"
+b100100 Z
+b100100 2"
+b101000 T
+b101000 3"
+b101000 d"
+b101100 e
+b101100 0"
+b101100 L"
+b101000 m
+b101000 -"
+b101000 f
+b101000 K"
+b110000 @
+b110000 F"
+b110000 W"
+b101100 A
+b101100 G"
+b101100 V"
+1"
+b110 $
+1!
+#640000
+0!
+#645000
+b0 4
+b100 7
+b110010000000000001110010011 8
+b110010000000000001110010011 T"
+b110010000000000001110010011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#650000
+0!
+#655000
+b100000000 #"
+b100000 p"
+1!
+#660000
+0"
+0!
+#665000
+b1100100 H
+b1100100 H"
+b1100100 a"
+b100001100110 `"
+b1100100 ^"
+b1100100 _"
+b1100111 ]"
+b11 )"
+b100 :
+b100 $"
+b100 ="
+b100 C"
+b100 l"
+b111 ?
+b111 &"
+b111 A"
+b1000 7
+b111010010000000011 8
+b111010010000000011 T"
+b111010010000000011 Y"
+b110010000000000001110010011 G
+b110010000000000001110010011 |
+b110010000000000001110010011 ("
+b110010000000000001110010011 U"
+b110010000000000001110010011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#670000
+0!
+#675000
+b1000 `"
+b111010000000000000 ^"
+0^
+b1100100 q
+b1100100 z
+b1100100 ,"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b1000 ]"
+1C
+1D
+1L
+1<
+b1100 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1100100 s
+b1100100 x
+b11 \"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b111 ;
+b111 %"
+b111 <"
+b111 B"
+b111 k"
+b10 *"
+b1000 ?
+b1000 &"
+b1000 A"
+b11 '"
+b10 }
+b11 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+b111 d
+b111 /"
+b111 ?"
+b111 M"
+b100 _
+b100 8"
+b100 Q"
+b1100100 m
+b1100100 -"
+b1100100 l
+b1100100 J"
+b100 e
+b100 0"
+b100 L"
+b111010010000000011 G
+b111010010000000011 |
+b111010010000000011 ("
+b111010010000000011 U"
+b111010010000000011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#680000
+0!
+#685000
+b0 `"
+b0 ^"
+b0 ]"
+0C
+0D
+1L
+1<
+b10011 \"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 *"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b0 }
+b10011 {
+b0 s
+b0 x
+b1100100 4
+b1100100 t
+b1100100 w
+b10 O
+b10 :"
+b10000 7
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1h
+1i
+b1000 d
+b1000 /"
+b1000 ?"
+b1000 M"
+b0 _
+b0 8"
+b0 Q"
+b111 `
+b111 9"
+b111 P"
+b0 l
+b0 J"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b1100100 Z
+b1100100 2"
+b111 S
+b111 4"
+b111 6"
+b111 e"
+0P
+b1100100 ]
+b1100100 !"
+b1100100 1"
+b1100100 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#690000
+0!
+#695000
+1^
+b0 q
+b0 z
+b0 ,"
+b1100100 +
+b1100100 m"
+b0 t
+b0 w
+b10100 7
+b1001101 5
+b1001101 ""
+b1001101 c"
+b100 4
+b0 O
+b0 :"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b111 ,
+b111 7"
+b111 i"
+b111 j"
+b1100100 2
+b1100100 f"
+1V
+1W
+b100 Z
+b100 2"
+b1000 S
+b1000 4"
+b1000 6"
+b1000 e"
+b1000 T
+b1000 3"
+b1000 d"
+0h
+0i
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 `
+b0 9"
+b0 P"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#700000
+0!
+#705000
+b1001101 +
+b1001101 m"
+b1000 4
+b0 5
+b0 ""
+b0 c"
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+0V
+0W
+b1000 Z
+b1000 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b1100 T
+b1100 3"
+b1100 d"
+1/
+b1000 -
+b1000 h"
+b1000 ,
+b1000 7"
+b1000 i"
+b1000 j"
+b1001101 .
+b1001101 g"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#710000
+0!
+#715000
+b0 +
+b0 m"
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+0/
+b1100 -
+b1100 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 .
+b0 g"
+b0 2
+b0 f"
+b1100 Z
+b1100 2"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#720000
+0!
+#725000
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#730000
+0!
+#735000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1!
+#740000
+0!
+#745000
+b11000 4
+b101000 7
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b11000 -
+b11000 h"
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+1!
+#750000
+0!
+#755000
+b101100 7
+b11100 4
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+b11100 -
+b11100 h"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+1"
+b111 $
+1!
+#760000
+0!
+#765000
+b0 4
+b100 7
+b11100000000000110010011 8
+b11100000000000110010011 T"
+b11100000000000110010011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#770000
+0!
+#775000
+b100000000 #"
+b100000 p"
+1!
+#780000
+0"
+0!
+#785000
+b111 H
+b111 H"
+b111 a"
+b100000000010 `"
+b100000000110 ^"
+b111 _"
+b11 ]"
+b111 :
+b111 $"
+b111 ="
+b111 C"
+b111 l"
+b11 ?
+b11 &"
+b11 A"
+b1000 7
+b11100000000001000010011 8
+b11100000000001000010011 T"
+b11100000000001000010011 Y"
+b11100000000000110010011 G
+b11100000000000110010011 |
+b11100000000000110010011 ("
+b11100000000000110010011 U"
+b11100000000000110010011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#790000
+0!
+#795000
+b100 `"
+0^
+b111 q
+b111 z
+b111 ,"
+b100 ]"
+b1100 7
+b10000011000010001100011 8
+b10000011000010001100011 T"
+b10000011000010001100011 Y"
+b111 s
+b111 x
+b100 ?
+b100 &"
+b100 A"
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b111 _
+b111 8"
+b111 Q"
+b111 m
+b111 -"
+b111 l
+b111 J"
+b100 e
+b100 0"
+b100 L"
+b11100000000001000010011 G
+b11100000000001000010011 |
+b11100000000001000010011 ("
+b11100000000001000010011 U"
+b11100000000001000010011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#800000
+0!
+#805000
+b1000 `"
+b11000000000000100 ^"
+b1000 H
+b1000 H"
+b1000 a"
+b100 _"
+b1000 ]"
+b1 M
+b1 +"
+b1 @"
+1K
+0L
+0<
+b1100011 \"
+b100 :
+b100 $"
+b100 ="
+b100 C"
+b100 l"
+b11 ;
+b11 %"
+b11 <"
+b11 B"
+b11 k"
+b1000 ?
+b1000 &"
+b1000 A"
+b1100011 '"
+b1100011 {
+b111 4
+b10000 7
+b110001100000000001010010011 8
+b110001100000000001010010011 T"
+b110001100000000001010010011 Y"
+b10000011000010001100011 G
+b10000011000010001100011 |
+b10000011000010001100011 ("
+b10000011000010001100011 U"
+b10000011000010001100011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+b100 d
+b100 /"
+b100 ?"
+b100 M"
+b1000 e
+b1000 0"
+b1000 L"
+b1011 m
+b1011 -"
+b100 f
+b100 K"
+b111 Z
+b111 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+0P
+b111 ]
+b111 !"
+b111 1"
+b111 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#810000
+0!
+#815000
+1%
+b111 t
+b111 w
+b100001100100 `"
+b100001100010 ^"
+b111 +
+b111 m"
+b111 u
+b111 ."
+b1100011 H
+b1100011 H"
+b1100011 a"
+b1100011 _"
+b1100101 ]"
+b0 M
+b0 +"
+b0 @"
+1L
+1<
+0K
+b10100 7
+b100000000001010010011 8
+b100000000001010010011 T"
+b100000000001010010011 Y"
+b1011 4
+1^
+b0 q
+b0 z
+b0 ,"
+b10 N
+b10 ;"
+b1 O
+b1 :"
+b111 s
+b111 x
+b10011 \"
+b11 )"
+b11 :
+b11 $"
+b11 ="
+b11 C"
+b11 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b101 ?
+b101 &"
+b101 A"
+b10011 '"
+b10011 {
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b111 2
+b111 f"
+b1011 Z
+b1011 2"
+b100 S
+b100 4"
+b100 6"
+b100 e"
+b1000 T
+b1000 3"
+b1000 d"
+1o
+0p
+0a
+b1 r
+b1 y
+b1 I"
+b1000 d
+b1000 /"
+b1000 ?"
+b1000 M"
+b100 _
+b100 8"
+b100 Q"
+b11 `
+b11 9"
+b11 P"
+b1000 l
+b1000 J"
+b1100 e
+b1100 0"
+b1100 L"
+b10000 m
+b10000 -"
+b1000 f
+b1000 K"
+b110001100000000001010010011 G
+b110001100000000001010010011 |
+b110001100000000001010010011 ("
+b110001100000000001010010011 U"
+b110001100000000001010010011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#820000
+0!
+#825000
+1'
+0%
+1(
+1)
+b1 H
+b1 H"
+b1 a"
+b100000000100 `"
+b100000000000 ^"
+b1 _"
+b101 ]"
+b0 )"
+b1 :
+b1 $"
+b1 ="
+b1 C"
+b1 l"
+b1010 =
+b1010 D"
+b1010 o"
+b1100011 s
+b1100011 x
+0^
+b1100011 q
+b1100011 z
+b1100011 ,"
+b10000 4
+b0 t
+b0 w
+b0 u
+b0 ."
+b0 N
+b0 ;"
+b0 O
+b0 :"
+b10000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b100000000001010010011 G
+b100000000001010010011 |
+b100000000001010010011 ("
+b100000000001010010011 U"
+b100000000001010010011 ["
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+0o
+1p
+1a
+b0 r
+b0 y
+b0 I"
+b101 d
+b101 /"
+b101 ?"
+b101 M"
+b11 _
+b11 8"
+b11 Q"
+b0 `
+b0 9"
+b0 P"
+b1100011 l
+b1100011 J"
+b10000 e
+b10000 0"
+b10000 L"
+b1101111 m
+b1101111 -"
+b1100 f
+b1100 K"
+1\
+0Q
+b10000 Z
+b10000 2"
+b1000 S
+b1000 4"
+b1000 6"
+b1000 e"
+b111 R
+b111 ~
+b111 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b100 ,
+b100 7"
+b100 i"
+b100 j"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#830000
+0!
+#835000
+0'
+0(
+0)
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b0 +
+b0 m"
+b10100 7
+1^
+b0 q
+b0 z
+b0 ,"
+b0 _"
+b0 ]"
+b100000000001010010011 8
+b100000000001010010011 T"
+b100000000001010010011 Y"
+b1101111 4
+b0 s
+b0 x
+b0 =
+b0 D"
+b0 o"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+0*
+b1100 -
+b1100 h"
+b1000 ,
+b1000 7"
+b1000 i"
+b1000 j"
+b0 2
+b0 f"
+0\
+1Q
+b1101111 Z
+b1101111 2"
+b101 S
+b101 4"
+b101 6"
+b101 e"
+b0 R
+b0 ~
+b0 5"
+0P
+b1100011 ]
+b1100011 !"
+b1100011 1"
+b1100011 b"
+b10000 T
+b10000 3"
+b10000 d"
+0p
+0a
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+1!
+#840000
+0!
+#845000
+b1 H
+b1 H"
+b1 a"
+b100000000100 `"
+b100000000000 ^"
+b1 _"
+b101 ]"
+b1010 =
+b1010 D"
+b1010 o"
+b1100011 +
+b1100011 m"
+b1 :
+b1 $"
+b1 ="
+b1 C"
+b1 l"
+b101 ?
+b101 &"
+b101 A"
+b0 4
+b11000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b100000000001010010011 G
+b100000000001010010011 |
+b100000000001010010011 ("
+b100000000001010010011 U"
+b100000000001010010011 ["
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+1p
+1a
+0Q
+b0 Z
+b0 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b0 T
+b0 3"
+b0 d"
+1*
+b10000 -
+b10000 h"
+b101 ,
+b101 7"
+b101 i"
+b101 j"
+b1100011 2
+b1100011 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#850000
+0!
+#855000
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b0 +
+b0 m"
+0^
+b1 q
+b1 z
+b1 ,"
+b0 _"
+b0 ]"
+b11100 7
+b1 s
+b1 x
+b1010 u
+b1010 ."
+b0 =
+b0 D"
+b0 o"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+0*
+b0 -
+b0 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+1Q
+b101 d
+b101 /"
+b101 ?"
+b101 M"
+b1 _
+b1 8"
+b1 Q"
+b1 l
+b1 J"
+b1010 b
+b1010 O"
+b10100 e
+b10100 0"
+b10100 L"
+b10001 m
+b10001 -"
+b10000 f
+b10000 K"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#860000
+0!
+#865000
+1^
+b0 q
+b0 z
+b0 ,"
+b0 s
+b0 x
+b10001 4
+b0 u
+b0 ."
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10001 Z
+b10001 2"
+b101 S
+b101 4"
+b101 6"
+b101 e"
+b1010 R
+b1010 ~
+b1010 5"
+0P
+b1 ]
+b1 !"
+b1 1"
+b1 b"
+b10100 T
+b10100 3"
+b10100 d"
+1*
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#870000
+0!
+#875000
+b1 +
+b1 m"
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b101 ,
+b101 7"
+b101 i"
+b101 j"
+b1 2
+b1 f"
+b10100 Z
+b10100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1!
+#880000
+0!
+#885000
+b0 +
+b0 m"
+b11000 4
+b101000 7
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b11000 -
+b11000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+1!
+#890000
+0!
+#895000
+b101100 7
+b11100 4
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+b11100 -
+b11100 h"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+1!
+#900000
+0!
+#905000
+b100000 4
+b110000 7
+b101100 @
+b101100 F"
+b101100 W"
+b101000 A
+b101000 G"
+b101000 V"
+b101000 e
+b101000 0"
+b101000 L"
+b100100 m
+b100100 -"
+b100100 f
+b100100 K"
+b100000 Z
+b100000 2"
+b100100 T
+b100100 3"
+b100100 d"
+b100000 -
+b100000 h"
+b110000 6
+b110000 S"
+b101100 v
+b101100 R"
+b101100 X"
+1!
+#910000
+0!
+#915000
+b110100 7
+b100100 4
+b110100 6
+b110100 S"
+b110000 v
+b110000 R"
+b110000 X"
+b100100 -
+b100100 h"
+b100100 Z
+b100100 2"
+b101000 T
+b101000 3"
+b101000 d"
+b101100 e
+b101100 0"
+b101100 L"
+b101000 m
+b101000 -"
+b101000 f
+b101000 K"
+b110000 @
+b110000 F"
+b110000 W"
+b101100 A
+b101100 G"
+b101100 V"
+1"
+b1000 $
+1!
+#920000
+0!
+#925000
+b0 4
+b100 7
+b1000001001010001100011 8
+b1000001001010001100011 T"
+b1000001001010001100011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#930000
+0!
+#935000
+b100000000 #"
+b100000 p"
+1!
+#940000
+0"
+0!
+#945000
+b1000 H
+b1000 H"
+b1000 a"
+b1000 `"
+b1001000000000010 ^"
+b10 _"
+b1000 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b1010 >
+b1010 E"
+b1010 n"
+b1 M
+b1 +"
+b1 @"
+1J
+0L
+0<
+b1100011 \"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b1 *"
+b1000 ?
+b1000 &"
+b1000 A"
+b1100011 '"
+b1 }
+b1100011 {
+b1000 7
+b110001100000000000110010011 8
+b110001100000000000110010011 T"
+b110001100000000000110010011 Y"
+b1000001001010001100011 G
+b1000001001010001100011 |
+b1000001001010001100011 ("
+b1000001001010001100011 U"
+b1000001001010001100011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#950000
+0!
+#955000
+1%
+b100001100010 `"
+b100001100010 ^"
+b1100011 H
+b1100011 H"
+b1100011 a"
+b1100011 _"
+b1100011 ]"
+b0 =
+b0 D"
+b0 o"
+b0 >
+b0 E"
+b0 n"
+b0 M
+b0 +"
+b0 @"
+1L
+1<
+0J
+b1100 7
+b1000000000000110010011 8
+b1000000000000110010011 T"
+b1000000000000110010011 Y"
+0^
+b11111111111111111111111111110110 q
+b11111111111111111111111111110110 z
+b11111111111111111111111111110110 ,"
+b10100 s
+b10100 x
+b10100 u
+b10100 ."
+b1010 t
+b1010 w
+b10011 \"
+b11 )"
+b11 :
+b11 $"
+b11 ="
+b11 C"
+b11 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 *"
+b11 ?
+b11 &"
+b11 A"
+b10011 '"
+b0 }
+b10011 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+1n
+0p
+0a
+b1 r
+b1 y
+b1 I"
+b1000 d
+b1000 /"
+b1000 ?"
+b1000 M"
+b10 _
+b10 8"
+b10 Q"
+b1 `
+b1 9"
+b1 P"
+b1000 m
+b1000 -"
+b1000 l
+b1000 J"
+b10100 b
+b10100 O"
+b1010 c
+b1010 N"
+b100 e
+b100 0"
+b100 L"
+b110001100000000000110010011 G
+b110001100000000000110010011 |
+b110001100000000000110010011 ("
+b110001100000000000110010011 U"
+b110001100000000000110010011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#960000
+0!
+#965000
+1'
+0%
+1(
+1)
+b10 H
+b10 H"
+b10 a"
+b100000000010 `"
+b10 ^"
+b10 _"
+b11 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b0 )"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b1100011 s
+b1100011 x
+b1100011 q
+b1100011 z
+b1100011 ,"
+b1000 4
+b0 t
+b0 w
+b0 u
+b0 ."
+b1000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1000000000000110010011 G
+b1000000000000110010011 |
+b1000000000000110010011 ("
+b1000000000000110010011 U"
+b1000000000000110010011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+0n
+1p
+1a
+b0 r
+b0 y
+b0 I"
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b11 _
+b11 8"
+b11 Q"
+b0 `
+b0 9"
+b0 P"
+b1100011 l
+b1100011 J"
+b0 b
+b0 O"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b1100111 m
+b1100111 -"
+b100 f
+b100 K"
+1[
+0Q
+b1000 Z
+b1000 2"
+b1000 S
+b1000 4"
+b1000 6"
+b1000 e"
+b10100 R
+b10100 ~
+b10100 5"
+0P
+b11111111111111111111111111110110 ]
+b11111111111111111111111111110110 !"
+b11111111111111111111111111110110 1"
+b11111111111111111111111111110110 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#970000
+0!
+#975000
+0'
+0(
+0)
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b11111111111111111111111111110110 +
+b11111111111111111111111111110110 m"
+b1100 7
+1^
+b0 q
+b0 z
+b0 ,"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+b1000000000000110010011 8
+b1000000000000110010011 T"
+b1000000000000110010011 Y"
+b1100111 4
+b0 s
+b0 x
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+0*
+b100 -
+b100 h"
+b1000 ,
+b1000 7"
+b1000 i"
+b1000 j"
+b11111111111111111111111111110110 2
+b11111111111111111111111111110110 f"
+0[
+1Q
+b1100111 Z
+b1100111 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b0 R
+b0 ~
+b0 5"
+b1100011 ]
+b1100011 !"
+b1100011 1"
+b1100011 b"
+b1000 T
+b1000 3"
+b1000 d"
+0p
+0a
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+1!
+#980000
+0!
+#985000
+b10 H
+b10 H"
+b10 a"
+b100000000010 `"
+b10 ^"
+b10 _"
+b11 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b1100011 +
+b1100011 m"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b11 ?
+b11 &"
+b11 A"
+b0 4
+b10000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1000000000000110010011 G
+b1000000000000110010011 |
+b1000000000000110010011 ("
+b1000000000000110010011 U"
+b1000000000000110010011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1p
+1a
+0Q
+b0 Z
+b0 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b0 T
+b0 3"
+b0 d"
+1*
+b1000 -
+b1000 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b1100011 2
+b1100011 f"
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#990000
+0!
+#995000
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b0 +
+b0 m"
+0^
+b10 q
+b10 z
+b10 ,"
+b0 _"
+b0 ]"
+b10100 7
+b10 s
+b10 x
+b10100 u
+b10100 ."
+b0 =
+b0 D"
+b0 o"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+0*
+b0 -
+b0 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+1Q
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b10 _
+b10 8"
+b10 Q"
+b10 l
+b10 J"
+b10100 b
+b10100 O"
+b1100 e
+b1100 0"
+b1100 L"
+b1010 m
+b1010 -"
+b1000 f
+b1000 K"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#1000000
+0!
+#1005000
+1^
+b0 q
+b0 z
+b0 ,"
+b0 s
+b0 x
+b1010 4
+b0 u
+b0 ."
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1010 Z
+b1010 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b10100 R
+b10100 ~
+b10100 5"
+0P
+b10 ]
+b10 !"
+b10 1"
+b10 b"
+b1100 T
+b1100 3"
+b1100 d"
+1*
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#1010000
+0!
+#1015000
+b10 +
+b10 m"
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b10 2
+b10 f"
+b1100 Z
+b1100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#1020000
+0!
+#1025000
+b0 +
+b0 m"
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#1030000
+0!
+#1035000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1!
+#1040000
+0!
+#1045000
+b11000 4
+b101000 7
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b11000 -
+b11000 h"
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+1!
+#1050000
+0!
+#1055000
+b101100 7
+b11100 4
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+b11100 -
+b11100 h"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+1"
+b1001 $
+1!
+#1060000
+0!
+#1065000
+b0 4
+b100 7
+b100000000000001011101111 8
+b100000000000001011101111 T"
+b100000000000001011101111 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#1070000
+0!
+#1075000
+b100000000 #"
+b100000 p"
+1!
+#1080000
+0"
+0!
+#1085000
+b1000 H
+b1000 H"
+b1000 a"
+b100000000100 `"
+b1000 ^"
+b1000 _"
+b101 ]"
+1E
+0L
+1<
+b1101111 \"
+b1000 :
+b1000 $"
+b1000 ="
+b1000 C"
+b1000 l"
+b101 ?
+b101 &"
+b101 A"
+b1101111 '"
+b1101111 {
+b1000 7
+b110001100000000000110010011 8
+b110001100000000000110010011 T"
+b110001100000000000110010011 Y"
+b100000000000001011101111 G
+b100000000000001011101111 |
+b100000000000001011101111 ("
+b100000000000001011101111 U"
+b100000000000001011101111 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#1090000
+0!
+#1095000
+b100001100010 `"
+b100001100010 ^"
+1%
+b1100011 H
+b1100011 H"
+b1100011 a"
+b1100011 _"
+b1100011 ]"
+1L
+0E
+1<
+b1100 7
+b1100000000000110010011 8
+b1100000000000110010011 T"
+b1100000000000110010011 Y"
+b10011 \"
+b11 )"
+b11 :
+b11 $"
+b11 ="
+b11 C"
+b11 l"
+b11 ?
+b11 &"
+b11 A"
+b10011 '"
+b10011 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+1j
+0p
+b101 d
+b101 /"
+b101 ?"
+b101 M"
+b1000 _
+b1000 8"
+b1000 Q"
+b1000 m
+b1000 -"
+b1000 l
+b1000 J"
+b100 e
+b100 0"
+b100 L"
+b110001100000000000110010011 G
+b110001100000000000110010011 |
+b110001100000000000110010011 ("
+b110001100000000000110010011 U"
+b110001100000000000110010011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#1100000
+0!
+#1105000
+b11 H
+b11 H"
+b11 a"
+b100000000010 `"
+b100000000010 ^"
+1'
+b11 _"
+b11 ]"
+0%
+0^
+b1100011 q
+b1100011 z
+b1100011 ,"
+1(
+1)
+b0 )"
+b1100011 s
+b1100011 x
+b1000 4
+b1000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1100000000000110010011 G
+b1100000000000110010011 |
+b1100000000000110010011 ("
+b1100000000000110010011 U"
+b1100000000000110010011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+0j
+1p
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b11 _
+b11 8"
+b11 Q"
+b1100011 l
+b1100011 J"
+b1000 e
+b1000 0"
+b1000 L"
+b1100111 m
+b1100111 -"
+b100 f
+b100 K"
+1X
+b1000 Z
+b1000 2"
+b101 S
+b101 4"
+b101 6"
+b101 e"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#1110000
+0!
+#1115000
+0'
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b100 +
+b100 m"
+0(
+0)
+b1100 7
+1^
+b0 q
+b0 z
+b0 ,"
+b0 _"
+b0 ]"
+b1100000000000110010011 8
+b1100000000000110010011 T"
+b1100000000000110010011 Y"
+b1100111 4
+b0 s
+b0 x
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+10
+b100 -
+b100 h"
+b101 ,
+b101 7"
+b101 i"
+b101 j"
+0X
+b1100111 Z
+b1100111 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+0P
+b1100011 ]
+b1100011 !"
+b1100011 1"
+b1100011 b"
+b1000 T
+b1000 3"
+b1000 d"
+0p
+0a
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+1!
+#1120000
+0!
+#1125000
+b11 H
+b11 H"
+b11 a"
+b100000000010 `"
+b100000000010 ^"
+b11 _"
+b11 ]"
+b11 :
+b11 $"
+b11 ="
+b11 C"
+b11 l"
+b11 ?
+b11 &"
+b11 A"
+b0 4
+b1100011 +
+b1100011 m"
+b10000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1100000000000110010011 G
+b1100000000000110010011 |
+b1100000000000110010011 ("
+b1100000000000110010011 U"
+b1100000000000110010011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1p
+1a
+0Q
+b0 Z
+b0 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b0 T
+b0 3"
+b0 d"
+00
+b1000 -
+b1000 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b1100011 2
+b1100011 f"
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#1130000
+0!
+#1135000
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b0 +
+b0 m"
+0^
+b11 q
+b11 z
+b11 ,"
+b0 _"
+b0 ]"
+b10100 7
+b11 s
+b11 x
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+0*
+b0 -
+b0 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+1Q
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b11 _
+b11 8"
+b11 Q"
+b11 l
+b11 J"
+b1100 e
+b1100 0"
+b1100 L"
+b1011 m
+b1011 -"
+b1000 f
+b1000 K"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#1140000
+0!
+#1145000
+1^
+b0 q
+b0 z
+b0 ,"
+b0 s
+b0 x
+b1011 4
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1011 Z
+b1011 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+0P
+b11 ]
+b11 !"
+b11 1"
+b11 b"
+b1100 T
+b1100 3"
+b1100 d"
+1*
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#1150000
+0!
+#1155000
+b11 +
+b11 m"
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b11 2
+b11 f"
+b1100 Z
+b1100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#1160000
+0!
+#1165000
+b0 +
+b0 m"
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#1170000
+0!
+#1175000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1!
+#1180000
+0!
+#1185000
+b11000 4
+b101000 7
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b11000 -
+b11000 h"
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+1!
+#1190000
+0!
+#1195000
+b101100 7
+b11100 4
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+b11100 -
+b11100 h"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+1"
+b1011 $
+1!
+#1200000
+0!
+#1205000
+b0 4
+b100 7
+b110000000000000010010011 8
+b110000000000000010010011 T"
+b110000000000000010010011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#1210000
+0!
+#1215000
+b100000000 #"
+b100000 p"
+1!
+#1220000
+0"
+0!
+#1225000
+b1100 H
+b1100 H"
+b1100 a"
+b100000000000 `"
+b1100 ^"
+b1100 _"
+b1 ]"
+b1100 :
+b1100 $"
+b1100 ="
+b1100 C"
+b1100 l"
+b1 ?
+b1 &"
+b1 A"
+b1000 7
+b1000001011100111 8
+b1000001011100111 T"
+b1000001011100111 Y"
+b110000000000000010010011 G
+b110000000000000010010011 |
+b110000000000000010010011 ("
+b110000000000000010010011 U"
+b110000000000000010010011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#1230000
+0!
+#1235000
+b100000000100 `"
+b1000000000000000 ^"
+0^
+b1100 q
+b1100 z
+b1100 ,"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b101 ]"
+b1010 >
+b1010 E"
+b1010 n"
+1F
+1L
+1<
+b1100 7
+b110001100000000000110010011 8
+b110001100000000000110010011 T"
+b110001100000000000110010011 Y"
+b1100 s
+b1100 x
+b1100111 \"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b101 ?
+b101 &"
+b101 A"
+b1100111 '"
+b1100111 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+b1 d
+b1 /"
+b1 ?"
+b1 M"
+b1100 _
+b1100 8"
+b1100 Q"
+b1100 m
+b1100 -"
+b1100 l
+b1100 J"
+b100 e
+b100 0"
+b100 L"
+b1000001011100111 G
+b1000001011100111 |
+b1000001011100111 ("
+b1000001011100111 U"
+b1000001011100111 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#1240000
+0!
+#1245000
+b100001100010 `"
+b100001100010 ^"
+b1100011 H
+b1100011 H"
+b1100011 a"
+b1100011 _"
+b1100011 ]"
+b0 >
+b0 E"
+b0 n"
+0F
+1L
+1<
+b10011 \"
+b11 )"
+b11 :
+b11 $"
+b11 ="
+b11 C"
+b11 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b11 ?
+b11 &"
+b11 A"
+b10011 '"
+b10011 {
+1%
+b0 s
+b0 x
+b1100 4
+b1100 t
+b1100 w
+b10 O
+b10 :"
+b10000 7
+b10101000000000000110010011 8
+b10101000000000000110010011 T"
+b10101000000000000110010011 Y"
+b110001100000000000110010011 G
+b110001100000000000110010011 |
+b110001100000000000110010011 ("
+b110001100000000000110010011 U"
+b110001100000000000110010011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1k
+b101 d
+b101 /"
+b101 ?"
+b101 M"
+b0 _
+b0 8"
+b0 Q"
+b1 `
+b1 9"
+b1 P"
+b0 l
+b0 J"
+b1010 c
+b1010 N"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b1100 Z
+b1100 2"
+b1 S
+b1 4"
+b1 6"
+b1 e"
+0P
+b1100 ]
+b1100 !"
+b1100 1"
+b1100 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#1250000
+0!
+#1255000
+b101010 H
+b101010 H"
+b101010 a"
+b100000100010 `"
+b101010 ^"
+b1100 +
+b1100 m"
+1'
+b0 t
+b0 w
+b1100011 q
+b1100011 z
+b1100011 ,"
+b101010 _"
+b100011 ]"
+b1100 7
+b10011 8
+b10011 T"
+b10011 Y"
+1(
+1)
+0%
+b0 O
+b0 :"
+b1100011 s
+b1100011 x
+b1 )"
+b1010 :
+b1010 $"
+b1010 ="
+b1010 C"
+b1010 l"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b1 ,
+b1 7"
+b1 i"
+b1 j"
+b1100 2
+b1100 f"
+1Y
+b100 Z
+b100 2"
+b101 S
+b101 4"
+b101 6"
+b101 e"
+b1000 T
+b1000 3"
+b1000 d"
+0k
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b11 _
+b11 8"
+b11 Q"
+b0 `
+b0 9"
+b0 P"
+b1100011 l
+b1100011 J"
+b0 c
+b0 N"
+b1100 e
+b1100 0"
+b1100 L"
+b1101011 m
+b1101011 -"
+b1000 f
+b1000 K"
+b10101000000000000110010011 G
+b10101000000000000110010011 |
+b10101000000000000110010011 ("
+b10101000000000000110010011 U"
+b10101000000000000110010011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#1260000
+0!
+#1265000
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b0 _"
+b0 ]"
+1^
+b0 q
+b0 z
+b0 ,"
+0'
+b10000 7
+b1000 +
+b1000 m"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b0 s
+b0 x
+b1101011 4
+0(
+0)
+b10101000000000000110010011 8
+b10101000000000000110010011 T"
+b10101000000000000110010011 Y"
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Y
+b1101011 Z
+b1101011 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b1100011 ]
+b1100011 !"
+b1100011 1"
+b1100011 b"
+b1100 T
+b1100 3"
+b1100 d"
+11
+b1000 -
+b1000 h"
+b101 ,
+b101 7"
+b101 i"
+b101 j"
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#1270000
+0!
+#1275000
+b101010 H
+b101010 H"
+b101010 a"
+b100000100010 `"
+b101010 ^"
+b101010 _"
+b100011 ]"
+b10100 7
+b10011 8
+b10011 T"
+b10011 Y"
+b1100011 +
+b1100011 m"
+b0 4
+b1 )"
+b1010 :
+b1010 $"
+b1010 ="
+b1010 C"
+b1010 l"
+b11 ?
+b11 &"
+b11 A"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+01
+b1100 -
+b1100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b1100011 2
+b1100011 f"
+0Q
+b0 Z
+b0 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b0 T
+b0 3"
+b0 d"
+1p
+1a
+b10101000000000000110010011 G
+b10101000000000000110010011 |
+b10101000000000000110010011 ("
+b10101000000000000110010011 U"
+b10101000000000000110010011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#1280000
+0!
+#1285000
+b0 H
+b0 H"
+b0 a"
+b0 `"
+b0 ^"
+b0 _"
+b0 ]"
+0^
+b101010 q
+b101010 z
+b101010 ,"
+b0 +
+b0 m"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ?
+b0 &"
+b0 A"
+b101010 s
+b101010 x
+b11000 7
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b1010 _
+b1010 8"
+b1010 Q"
+b101010 l
+b101010 J"
+b10000 e
+b10000 0"
+b10000 L"
+b110110 m
+b110110 -"
+b1100 f
+b1100 K"
+1Q
+0*
+b0 -
+b0 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#1290000
+0!
+#1295000
+1^
+b0 q
+b0 z
+b0 ,"
+b11100 7
+b110110 4
+b0 s
+b0 x
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+1*
+b110110 Z
+b110110 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+0P
+b101010 ]
+b101010 !"
+b101010 1"
+b101010 b"
+b10000 T
+b10000 3"
+b10000 d"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 l
+b0 J"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#1300000
+0!
+#1305000
+b101010 +
+b101010 m"
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b101010 2
+b101010 f"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#1310000
+0!
+#1315000
+b0 +
+b0 m"
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1!
+#1320000
+0!
+#1325000
+b11000 4
+b101000 7
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b11000 -
+b11000 h"
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+1!
+#1330000
+0!
+#1335000
+b101100 7
+b11100 4
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+b11100 -
+b11100 h"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+1!
+#1340000
+0!
+#1345000
+b100000 4
+b110000 7
+b101100 @
+b101100 F"
+b101100 W"
+b101000 A
+b101000 G"
+b101000 V"
+b101000 e
+b101000 0"
+b101000 L"
+b100100 m
+b100100 -"
+b100100 f
+b100100 K"
+b100000 Z
+b100000 2"
+b100100 T
+b100100 3"
+b100100 d"
+b100000 -
+b100000 h"
+b110000 6
+b110000 S"
+b101100 v
+b101100 R"
+b101100 X"
+1!
+#1350000
+0!
+#1355000
+b110100 7
+b100100 4
+b110100 6
+b110100 S"
+b110000 v
+b110000 R"
+b110000 X"
+b100100 -
+b100100 h"
+b100100 Z
+b100100 2"
+b101000 T
+b101000 3"
+b101000 d"
+b101100 e
+b101100 0"
+b101100 L"
+b101000 m
+b101000 -"
+b101000 f
+b101000 K"
+b110000 @
+b110000 F"
+b110000 W"
+b101100 A
+b101100 G"
+b101100 V"
+1"
+b1101 $
+1!
+#1360000
+0!
+#1365000
+b0 4
+b100 7
+b1000001000000110110011 8
+b1000001000000110110011 T"
+b1000001000000110110011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#1370000
+0!
+#1375000
+b100000000 #"
+b100000 p"
+1!
+#1380000
+0"
+0!
+#1385000
+b100000000010 `"
+b1000000000000010 ^"
+b10 H
+b10 H"
+b10 a"
+b10 _"
+b11 ]"
+b10100 =
+b10100 D"
+b10100 o"
+b1010 >
+b1010 E"
+b1010 n"
+0L
+1<
+b110011 \"
+b10 :
+b10 $"
+b10 ="
+b10 C"
+b10 l"
+b1 ;
+b1 %"
+b1 <"
+b1 B"
+b1 k"
+b11 ?
+b11 &"
+b11 A"
+b110011 '"
+b110011 {
+b1000 7
+b1000000000100011000000110110011 8
+b1000000000100011000000110110011 T"
+b1000000000100011000000110110011 Y"
+b1000001000000110110011 G
+b1000001000000110110011 |
+b1000001000000110110011 ("
+b1000001000000110110011 U"
+b1000001000000110110011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#1390000
+0!
+#1395000
+b10000000001 H
+b10000000001 H"
+b10000000001 a"
+b110000000010 `"
+b11000110000000000 ^"
+0^
+b11110 q
+b11110 z
+b11110 ,"
+b10000000001 _"
+b10000000011 ]"
+b1 M
+b1 +"
+b1 @"
+b1010 =
+b1010 D"
+b1010 o"
+b0 >
+b0 E"
+b0 n"
+b1100 7
+b10011 8
+b10011 T"
+b10011 Y"
+b10100 s
+b10100 x
+b10100 u
+b10100 ."
+b1010 t
+b1010 w
+b100000 )"
+b1 :
+b1 $"
+b1 ="
+b1 C"
+b1 l"
+b11 ;
+b11 %"
+b11 <"
+b11 B"
+b11 k"
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+0p
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b10 _
+b10 8"
+b10 Q"
+b1 `
+b1 9"
+b1 P"
+b10 m
+b10 -"
+b10 l
+b10 J"
+b10100 b
+b10100 O"
+b1010 c
+b1010 N"
+b100 e
+b100 0"
+b100 L"
+b1000000000100011000000110110011 G
+b1000000000100011000000110110011 |
+b1000000000100011000000110110011 ("
+b1000000000100011000000110110011 U"
+b1000000000100011000000110110011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#1400000
+0!
+#1405000
+b0 `"
+b0 ^"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+b0 M
+b0 +"
+b0 @"
+1L
+1<
+b1010 s
+b1010 x
+b10011 \"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b10011 {
+b10100 q
+b10100 z
+b10100 ,"
+b10 4
+b11110 t
+b11110 w
+b1010 u
+b1010 ."
+b10 O
+b10 :"
+b10000 7
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+b1 r
+b1 y
+b1 I"
+b1 _
+b1 8"
+b1 Q"
+b11 `
+b11 9"
+b11 P"
+b10000000001 l
+b10000000001 J"
+b1010 b
+b1010 O"
+b0 c
+b0 N"
+b1000 e
+b1000 0"
+b1000 L"
+b10000000101 m
+b10000000101 -"
+b100 f
+b100 K"
+b10 Z
+b10 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b10100 R
+b10100 ~
+b10100 5"
+0P
+b11110 ]
+b11110 !"
+b11110 1"
+b11110 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#1410000
+0!
+#1415000
+b11110 +
+b11110 m"
+1^
+b10100 7
+b10000000101 4
+b0 t
+b0 w
+b0 s
+b0 x
+b0 q
+b0 z
+b0 ,"
+b0 O
+b0 :"
+b0 u
+b0 ."
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+b100 -
+b100 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b11110 2
+b11110 f"
+b10000000101 Z
+b10000000101 2"
+b1010 R
+b1010 ~
+b1010 5"
+b10100 ]
+b10100 !"
+b10100 1"
+b10100 b"
+b1000 T
+b1000 3"
+b1000 d"
+1p
+b0 r
+b0 y
+b0 I"
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b1100 e
+b1100 0"
+b1100 L"
+b1000 m
+b1000 -"
+b1000 f
+b1000 K"
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1!
+#1420000
+0!
+#1425000
+b10100 +
+b10100 m"
+b1000 4
+b11000 7
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b1000 Z
+b1000 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b1100 T
+b1100 3"
+b1100 d"
+b1000 -
+b1000 h"
+b10100 2
+b10100 f"
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+1!
+#1430000
+0!
+#1435000
+b0 +
+b0 m"
+b11100 7
+b1100 4
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+b1100 -
+b1100 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b1100 Z
+b1100 2"
+b10000 T
+b10000 3"
+b10000 d"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+1!
+#1440000
+0!
+#1445000
+b10000 4
+b100000 7
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b10000 -
+b10000 h"
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+1!
+#1450000
+0!
+#1455000
+b100100 7
+b10100 4
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+b10100 -
+b10100 h"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+1!
+#1460000
+0!
+#1465000
+b11000 4
+b101000 7
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b11000 -
+b11000 h"
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+1!
+#1470000
+0!
+#1475000
+b101100 7
+b11100 4
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+b11100 -
+b11100 h"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+1"
+b1110 $
+1!
+#1480000
+0!
+#1485000
+b0 4
+b100 7
+b110010000000000001110010011 8
+b110010000000000001110010011 T"
+b110010000000000001110010011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#1490000
+0!
+#1495000
+b100000000 #"
+b100000 p"
+1!
+#1500000
+0"
+0!
+#1505000
+b1100100 H
+b1100100 H"
+b1100100 a"
+b100001100110 `"
+b1100100 ^"
+b1100100 _"
+b1100111 ]"
+b11 )"
+b100 :
+b100 $"
+b100 ="
+b100 C"
+b100 l"
+b111 ?
+b111 &"
+b111 A"
+b1000 7
+b111010000110000011 8
+b111010000110000011 T"
+b111010000110000011 Y"
+b110010000000000001110010011 G
+b110010000000000001110010011 |
+b110010000000000001110010011 ("
+b110010000000000001110010011 U"
+b110010000000000001110010011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#1510000
+0!
+#1515000
+b100000000010 `"
+b111010000000000000 ^"
+0^
+b1100100 q
+b1100100 z
+b1100100 ,"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b11 ]"
+1C
+1D
+1L
+1<
+b1100 7
+b100011000001000110011 8
+b100011000001000110011 T"
+b100011000001000110011 Y"
+b1100100 s
+b1100100 x
+b11 \"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b111 ;
+b111 %"
+b111 <"
+b111 B"
+b111 k"
+b10 *"
+b11 ?
+b11 &"
+b11 A"
+b11 '"
+b10 }
+b11 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+b111 d
+b111 /"
+b111 ?"
+b111 M"
+b100 _
+b100 8"
+b100 Q"
+b1100100 m
+b1100100 -"
+b1100100 l
+b1100100 J"
+b100 e
+b100 0"
+b100 L"
+b111010000110000011 G
+b111010000110000011 |
+b111010000110000011 ("
+b111010000110000011 U"
+b111010000110000011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#1520000
+0!
+#1525000
+03
+1'
+b100 `"
+b11000100000000000 ^"
+19
+1I
+1>"
+b1 H
+b1 H"
+b1 a"
+b1 _"
+b100 ]"
+b1010 =
+b1010 D"
+b1010 o"
+0C
+0D
+0L
+1<
+b110011 \"
+b1 :
+b1 $"
+b1 ="
+b1 C"
+b1 l"
+b11 ;
+b11 %"
+b11 <"
+b11 B"
+b11 k"
+b0 *"
+b100 ?
+b100 &"
+b100 A"
+b110011 '"
+b0 }
+b110011 {
+b0 s
+b0 x
+b1100100 4
+b1100100 t
+b1100100 w
+b10 O
+b10 :"
+b10000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b100011000001000110011 G
+b100011000001000110011 |
+b100011000001000110011 ("
+b100011000001000110011 U"
+b100011000001000110011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1h
+1i
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b0 _
+b0 8"
+b0 Q"
+b111 `
+b111 9"
+b111 P"
+b0 l
+b0 J"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b1100100 Z
+b1100100 2"
+b111 S
+b111 4"
+b111 6"
+b111 e"
+0P
+b1100100 ]
+b1100100 !"
+b1100100 1"
+b1100100 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#1530000
+0!
+#1535000
+13
+0'
+1^
+b0 q
+b0 z
+b0 ,"
+b1100100 +
+b1100100 m"
+09
+0I
+0>"
+b0 t
+b0 w
+b1001101 5
+b1001101 ""
+b1001101 c"
+b100 4
+b0 O
+b0 :"
+b100 -
+b100 h"
+b111 ,
+b111 7"
+b111 i"
+b111 j"
+b1100100 2
+b1100100 f"
+1V
+1W
+b100 Z
+b100 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b1000 T
+b1000 3"
+b1000 d"
+0h
+0i
+0p
+0a
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 `
+b0 9"
+b0 P"
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+1!
+#1540000
+0!
+#1545000
+b0 `"
+b0 ^"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+1L
+1<
+0^
+b1010111 q
+b1010111 z
+b1010111 ,"
+b1010 s
+b1010 x
+b1001101 +
+b1001101 m"
+b10011 \"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b10011 {
+b0 4
+b1001101 t
+b1001101 w
+b1010 u
+b1010 ."
+b0 5
+b0 ""
+b0 c"
+b1 O
+b1 :"
+b10100 7
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1a
+b100 d
+b100 /"
+b100 ?"
+b100 M"
+b1 _
+b1 8"
+b1 Q"
+b11 `
+b11 9"
+b11 P"
+b1 l
+b1 J"
+b1010 b
+b1010 O"
+b1100 e
+b1100 0"
+b1100 L"
+b1001 m
+b1001 -"
+b1000 f
+b1000 K"
+0V
+0W
+0Q
+b0 Z
+b0 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b0 T
+b0 3"
+b0 d"
+1/
+b1000 -
+b1000 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b1001101 .
+b1001101 g"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+1!
+#1550000
+0!
+#1555000
+b0 +
+b0 m"
+1^
+b0 q
+b0 z
+b0 ,"
+b11000 7
+b1001 4
+b0 t
+b0 w
+b0 s
+b0 x
+b0 O
+b0 :"
+b0 u
+b0 ."
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+0/
+0*
+b0 -
+b0 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 .
+b0 g"
+b0 2
+b0 f"
+1Q
+b1001 Z
+b1001 2"
+b100 S
+b100 4"
+b100 6"
+b100 e"
+b1010 R
+b1010 ~
+b1010 5"
+0P
+b1010111 ]
+b1010111 !"
+b1010111 1"
+b1010111 b"
+b1100 T
+b1100 3"
+b1100 d"
+1p
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+1!
+#1560000
+0!
+#1565000
+b1010111 +
+b1010111 m"
+b1100 4
+b11100 7
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b1100 Z
+b1100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b10000 T
+b10000 3"
+b10000 d"
+1*
+b1100 -
+b1100 h"
+b100 ,
+b100 7"
+b100 i"
+b100 j"
+b1010111 2
+b1010111 f"
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+1!
+#1570000
+0!
+#1575000
+b0 +
+b0 m"
+b100000 7
+b10000 4
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+b10000 -
+b10000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+1!
+#1580000
+0!
+#1585000
+b10100 4
+b100100 7
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b10100 -
+b10100 h"
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+1!
+#1590000
+0!
+#1595000
+b101000 7
+b11000 4
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+b11000 -
+b11000 h"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+1!
+#1600000
+0!
+#1605000
+b11100 4
+b101100 7
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b11100 -
+b11100 h"
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+1!
+#1610000
+0!
+#1615000
+b110000 7
+b100000 4
+b110000 6
+b110000 S"
+b101100 v
+b101100 R"
+b101100 X"
+b100000 -
+b100000 h"
+b100000 Z
+b100000 2"
+b100100 T
+b100100 3"
+b100100 d"
+b101000 e
+b101000 0"
+b101000 L"
+b100100 m
+b100100 -"
+b100100 f
+b100100 K"
+b101100 @
+b101100 F"
+b101100 W"
+b101000 A
+b101000 G"
+b101000 V"
+1!
+#1620000
+0!
+#1625000
+b100100 4
+b110100 7
+b110000 @
+b110000 F"
+b110000 W"
+b101100 A
+b101100 G"
+b101100 V"
+b101100 e
+b101100 0"
+b101100 L"
+b101000 m
+b101000 -"
+b101000 f
+b101000 K"
+b100100 Z
+b100100 2"
+b101000 T
+b101000 3"
+b101000 d"
+b100100 -
+b100100 h"
+b110100 6
+b110100 S"
+b110000 v
+b110000 R"
+b110000 X"
+1!
+#1630000
+0!
+#1635000
+b111000 7
+b101000 4
+b111000 6
+b111000 S"
+b110100 v
+b110100 R"
+b110100 X"
+b101000 -
+b101000 h"
+b101000 Z
+b101000 2"
+b101100 T
+b101100 3"
+b101100 d"
+b110000 e
+b110000 0"
+b110000 L"
+b101100 m
+b101100 -"
+b101100 f
+b101100 K"
+b110100 @
+b110100 F"
+b110100 W"
+b110000 A
+b110000 G"
+b110000 V"
+1"
+b1111 $
+1!
+#1640000
+0!
+#1645000
+b0 4
+b100 7
+b110010000000000001110010011 8
+b110010000000000001110010011 T"
+b110010000000000001110010011 Y"
+b0 @
+b0 F"
+b0 W"
+b0 A
+b0 G"
+b0 V"
+0p
+0a
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+0Q
+b0 Z
+b0 2"
+0P
+b0 T
+b0 3"
+b0 d"
+0*
+b0 -
+b0 h"
+b100 6
+b100 S"
+b0 v
+b0 R"
+b0 X"
+b100000 p"
+b100000000 #"
+1!
+#1650000
+0!
+#1655000
+b100000000 #"
+b100000 p"
+1!
+#1660000
+0"
+0!
+#1665000
+b1100100 H
+b1100100 H"
+b1100100 a"
+b100001100110 `"
+b1100100 ^"
+b1100100 _"
+b1100111 ]"
+b11 )"
+b100 :
+b100 $"
+b100 ="
+b100 C"
+b100 l"
+b111 ?
+b111 &"
+b111 A"
+b1000 7
+b111010000110000011 8
+b111010000110000011 T"
+b111010000110000011 Y"
+b110010000000000001110010011 G
+b110010000000000001110010011 |
+b110010000000000001110010011 ("
+b110010000000000001110010011 U"
+b110010000000000001110010011 ["
+b100 @
+b100 F"
+b100 W"
+1p
+1a
+1P
+b1000 6
+b1000 S"
+b100 v
+b100 R"
+b100 X"
+1!
+#1670000
+0!
+#1675000
+b100000000010 `"
+b111010000000000000 ^"
+0^
+b1100100 q
+b1100100 z
+b1100100 ,"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b11 ]"
+1C
+1D
+1L
+1<
+b1100 7
+b100011000001000110011 8
+b100011000001000110011 T"
+b100011000001000110011 Y"
+b1100100 s
+b1100100 x
+b11 \"
+b0 )"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b111 ;
+b111 %"
+b111 <"
+b111 B"
+b111 k"
+b10 *"
+b11 ?
+b11 &"
+b11 A"
+b11 '"
+b10 }
+b11 {
+b1100 6
+b1100 S"
+b1000 v
+b1000 R"
+b1000 X"
+1Q
+b111 d
+b111 /"
+b111 ?"
+b111 M"
+b100 _
+b100 8"
+b100 Q"
+b1100100 m
+b1100100 -"
+b1100100 l
+b1100100 J"
+b100 e
+b100 0"
+b100 L"
+b111010000110000011 G
+b111010000110000011 |
+b111010000110000011 ("
+b111010000110000011 U"
+b111010000110000011 ["
+b1000 @
+b1000 F"
+b1000 W"
+b100 A
+b100 G"
+b100 V"
+1!
+#1680000
+0!
+#1685000
+03
+1'
+b100 `"
+b11000100000000000 ^"
+19
+1I
+1>"
+b1 H
+b1 H"
+b1 a"
+b1 _"
+b100 ]"
+b1010 =
+b1010 D"
+b1010 o"
+0C
+0D
+0L
+1<
+b110011 \"
+b1 :
+b1 $"
+b1 ="
+b1 C"
+b1 l"
+b11 ;
+b11 %"
+b11 <"
+b11 B"
+b11 k"
+b0 *"
+b100 ?
+b100 &"
+b100 A"
+b110011 '"
+b0 }
+b110011 {
+b0 s
+b0 x
+b1100100 4
+b1100100 t
+b1100100 w
+b10 O
+b10 :"
+b10000 7
+b10011 8
+b10011 T"
+b10011 Y"
+b100011000001000110011 G
+b100011000001000110011 |
+b100011000001000110011 ("
+b100011000001000110011 U"
+b100011000001000110011 ["
+b1100 @
+b1100 F"
+b1100 W"
+b1000 A
+b1000 G"
+b1000 V"
+1h
+1i
+b11 d
+b11 /"
+b11 ?"
+b11 M"
+b0 _
+b0 8"
+b0 Q"
+b111 `
+b111 9"
+b111 P"
+b0 l
+b0 J"
+b1000 e
+b1000 0"
+b1000 L"
+b100 m
+b100 -"
+b100 f
+b100 K"
+b1100100 Z
+b1100100 2"
+b111 S
+b111 4"
+b111 6"
+b111 e"
+0P
+b1100100 ]
+b1100100 !"
+b1100100 1"
+b1100100 b"
+b100 T
+b100 3"
+b100 d"
+1*
+b10000 6
+b10000 S"
+b1100 v
+b1100 R"
+b1100 X"
+1!
+#1690000
+0!
+#1695000
+13
+0'
+1^
+b0 q
+b0 z
+b0 ,"
+b1100100 +
+b1100100 m"
+09
+0I
+0>"
+b0 t
+b0 w
+b110111 5
+b110111 ""
+b110111 c"
+b100 4
+b0 O
+b0 :"
+b100 -
+b100 h"
+b111 ,
+b111 7"
+b111 i"
+b111 j"
+b1100100 2
+b1100100 f"
+1V
+1W
+b100 Z
+b100 2"
+b11 S
+b11 4"
+b11 6"
+b11 e"
+b1000 T
+b1000 3"
+b1000 d"
+0h
+0i
+0p
+0a
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 `
+b0 9"
+b0 P"
+b0 e
+b0 0"
+b0 L"
+b0 m
+b0 -"
+b0 f
+b0 K"
+1!
+#1700000
+0!
+#1705000
+b0 `"
+b0 ^"
+b0 H
+b0 H"
+b0 a"
+b0 _"
+b0 ]"
+b0 =
+b0 D"
+b0 o"
+1L
+1<
+0^
+b1000001 q
+b1000001 z
+b1000001 ,"
+b1010 s
+b1010 x
+b110111 +
+b110111 m"
+b10011 \"
+b0 :
+b0 $"
+b0 ="
+b0 C"
+b0 l"
+b0 ;
+b0 %"
+b0 <"
+b0 B"
+b0 k"
+b0 ?
+b0 &"
+b0 A"
+b10011 '"
+b10011 {
+b0 4
+b110111 t
+b110111 w
+b1010 u
+b1010 ."
+b0 5
+b0 ""
+b0 c"
+b1 O
+b1 :"
+b10100 7
+b10011 G
+b10011 |
+b10011 ("
+b10011 U"
+b10011 ["
+b10000 @
+b10000 F"
+b10000 W"
+b1100 A
+b1100 G"
+b1100 V"
+1a
+b100 d
+b100 /"
+b100 ?"
+b100 M"
+b1 _
+b1 8"
+b1 Q"
+b11 `
+b11 9"
+b11 P"
+b1 l
+b1 J"
+b1010 b
+b1010 O"
+b1100 e
+b1100 0"
+b1100 L"
+b1001 m
+b1001 -"
+b1000 f
+b1000 K"
+0V
+0W
+0Q
+b0 Z
+b0 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b0 T
+b0 3"
+b0 d"
+1/
+b1000 -
+b1000 h"
+b11 ,
+b11 7"
+b11 i"
+b11 j"
+b110111 .
+b110111 g"
+b10100 6
+b10100 S"
+b10000 v
+b10000 R"
+b10000 X"
+1!
+#1710000
+0!
+#1715000
+b0 +
+b0 m"
+1^
+b0 q
+b0 z
+b0 ,"
+b11000 7
+b1001 4
+b0 t
+b0 w
+b0 s
+b0 x
+b0 O
+b0 :"
+b0 u
+b0 ."
+b11000 6
+b11000 S"
+b10100 v
+b10100 R"
+b10100 X"
+0/
+0*
+b0 -
+b0 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 .
+b0 g"
+b0 2
+b0 f"
+1Q
+b1001 Z
+b1001 2"
+b100 S
+b100 4"
+b100 6"
+b100 e"
+b1010 R
+b1010 ~
+b1010 5"
+0P
+b1000001 ]
+b1000001 !"
+b1000001 1"
+b1000001 b"
+b1100 T
+b1100 3"
+b1100 d"
+1p
+b0 d
+b0 /"
+b0 ?"
+b0 M"
+b0 _
+b0 8"
+b0 Q"
+b0 `
+b0 9"
+b0 P"
+b0 l
+b0 J"
+b0 b
+b0 O"
+b10000 e
+b10000 0"
+b10000 L"
+b1100 m
+b1100 -"
+b1100 f
+b1100 K"
+b10100 @
+b10100 F"
+b10100 W"
+b10000 A
+b10000 G"
+b10000 V"
+1!
+#1720000
+0!
+#1725000
+b1000001 +
+b1000001 m"
+b1100 4
+b11100 7
+b11000 @
+b11000 F"
+b11000 W"
+b10100 A
+b10100 G"
+b10100 V"
+b10100 e
+b10100 0"
+b10100 L"
+b10000 m
+b10000 -"
+b10000 f
+b10000 K"
+b1100 Z
+b1100 2"
+b0 S
+b0 4"
+b0 6"
+b0 e"
+b0 R
+b0 ~
+b0 5"
+1P
+b0 ]
+b0 !"
+b0 1"
+b0 b"
+b10000 T
+b10000 3"
+b10000 d"
+1*
+b1100 -
+b1100 h"
+b100 ,
+b100 7"
+b100 i"
+b100 j"
+b1000001 2
+b1000001 f"
+b11100 6
+b11100 S"
+b11000 v
+b11000 R"
+b11000 X"
+1!
+#1730000
+0!
+#1735000
+b0 +
+b0 m"
+b100000 7
+b10000 4
+b100000 6
+b100000 S"
+b11100 v
+b11100 R"
+b11100 X"
+b10000 -
+b10000 h"
+b0 ,
+b0 7"
+b0 i"
+b0 j"
+b0 2
+b0 f"
+b10000 Z
+b10000 2"
+b10100 T
+b10100 3"
+b10100 d"
+b11000 e
+b11000 0"
+b11000 L"
+b10100 m
+b10100 -"
+b10100 f
+b10100 K"
+b11100 @
+b11100 F"
+b11100 W"
+b11000 A
+b11000 G"
+b11000 V"
+1!
+#1740000
+0!
+#1745000
+b10100 4
+b100100 7
+b100000 @
+b100000 F"
+b100000 W"
+b11100 A
+b11100 G"
+b11100 V"
+b11100 e
+b11100 0"
+b11100 L"
+b11000 m
+b11000 -"
+b11000 f
+b11000 K"
+b10100 Z
+b10100 2"
+b11000 T
+b11000 3"
+b11000 d"
+b10100 -
+b10100 h"
+b100100 6
+b100100 S"
+b100000 v
+b100000 R"
+b100000 X"
+1!
+#1750000
+0!
+#1755000
+b101000 7
+b11000 4
+b101000 6
+b101000 S"
+b100100 v
+b100100 R"
+b100100 X"
+b11000 -
+b11000 h"
+b11000 Z
+b11000 2"
+b11100 T
+b11100 3"
+b11100 d"
+b100000 e
+b100000 0"
+b100000 L"
+b11100 m
+b11100 -"
+b11100 f
+b11100 K"
+b100100 @
+b100100 F"
+b100100 W"
+b100000 A
+b100000 G"
+b100000 V"
+1!
+#1760000
+0!
+#1765000
+b11100 4
+b101100 7
+b101000 @
+b101000 F"
+b101000 W"
+b100100 A
+b100100 G"
+b100100 V"
+b100100 e
+b100100 0"
+b100100 L"
+b100000 m
+b100000 -"
+b100000 f
+b100000 K"
+b11100 Z
+b11100 2"
+b100000 T
+b100000 3"
+b100000 d"
+b11100 -
+b11100 h"
+b101100 6
+b101100 S"
+b101000 v
+b101000 R"
+b101000 X"
+1!
+#1770000
+0!
+#1775000
+b110000 7
+b100000 4
+b110000 6
+b110000 S"
+b101100 v
+b101100 R"
+b101100 X"
+b100000 -
+b100000 h"
+b100000 Z
+b100000 2"
+b100100 T
+b100100 3"
+b100100 d"
+b101000 e
+b101000 0"
+b101000 L"
+b100100 m
+b100100 -"
+b100100 f
+b100100 K"
+b101100 @
+b101100 F"
+b101100 W"
+b101000 A
+b101000 G"
+b101000 V"
+1!
+#1780000
+0!
+#1785000
+b100100 4
+b110100 7
+b110000 @
+b110000 F"
+b110000 W"
+b101100 A
+b101100 G"
+b101100 V"
+b101100 e
+b101100 0"
+b101100 L"
+b101000 m
+b101000 -"
+b101000 f
+b101000 K"
+b100100 Z
+b100100 2"
+b101000 T
+b101000 3"
+b101000 d"
+b100100 -
+b100100 h"
+b110100 6
+b110100 S"
+b110000 v
+b110000 R"
+b110000 X"
+1!
+#1790000
+0!
+#1795000
+b111000 7
+b101000 4
+b111000 6
+b111000 S"
+b110100 v
+b110100 R"
+b110100 X"
+b101000 -
+b101000 h"
+b101000 Z
+b101000 2"
+b101100 T
+b101100 3"
+b101100 d"
+b110000 e
+b110000 0"
+b110000 L"
+b101100 m
+b101100 -"
+b101100 f
+b101100 K"
+b110100 @
+b110100 F"
+b110100 W"
+b110000 A
+b110000 G"
+b110000 V"
+b10000 $
+1!

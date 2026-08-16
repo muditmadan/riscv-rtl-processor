@@ -38,6 +38,15 @@ module register_file (
 
     end
 
+    // x0 is hardwired to zero and must never hold a non-zero value
+`ifndef SYNTHESIS
+    always @(posedge clk) begin
+        if (!reset)
+            assert (registers[0] == 32'b0)
+                else $error("x0 register violation: x0=%0h", registers[0]);
+    end
+`endif
+
     // Read operations
     always_comb begin
 

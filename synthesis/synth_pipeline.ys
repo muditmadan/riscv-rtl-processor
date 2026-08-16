@@ -1,0 +1,28 @@
+# ==============================================================
+# synth_pipeline.ys
+# Synthesizes the 5-stage pipelined RV32I core logic.
+# Library: sky130_fd_sc_hd TT 25°C 1.8V
+# ==============================================================
+
+read_verilog -sv -D SYNTHESIS ../rtl/alu.sv
+read_verilog -sv -D SYNTHESIS ../rtl/decoder.sv
+read_verilog -sv -D SYNTHESIS ../rtl/control_unit.sv
+read_verilog -sv -D SYNTHESIS ../rtl/immediate_generator.sv
+read_verilog -sv -D SYNTHESIS ../rtl/register_file.sv
+read_verilog -sv -D SYNTHESIS ../pipeline/if_id.sv
+read_verilog -sv -D SYNTHESIS ../pipeline/id_ex.sv
+read_verilog -sv -D SYNTHESIS ../pipeline/ex_mem.sv
+read_verilog -sv -D SYNTHESIS ../pipeline/mem_wb.sv
+read_verilog -sv -D SYNTHESIS ../pipeline/forwarding_unit.sv
+read_verilog -sv -D SYNTHESIS ../pipeline/hazard_unit.sv
+read_verilog -sv -D SYNTHESIS riscv_core_pipe.sv
+
+hierarchy -check -top riscv_core_pipe
+synth -top riscv_core_pipe -flatten
+
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib -D 10000
+clean
+
+tee -o results/pipeline_synth.txt stat -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog results/pipeline_netlist.v

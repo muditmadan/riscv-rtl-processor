@@ -1,0 +1,160 @@
+[*]
+[*] GTKWave Save File — RISC-V Instruction Subset Verification
+[*] riscv_waves.gtkw
+[*]
+[*] Open with:  gtkwave riscv.vcd riscv_waves.gtkw
+[*]
+[*] Named markers:
+[*]   A (t=15000ps)  : ADD at PC=0x00, alu_result=30, reg_write=1
+[*]   B (t=25000ps)  : ADD writeback committed (write_data=30 visible in reg_file)
+[*]   C (t=335000ps) : BEQ test — ADDI x3,x0,7 at PC=0x00
+[*]   D (t=355000ps) : BEQ at PC=0x08 — branch=1, zero=1, branch_taken=1, next_pc=0x10
+[*]   E (t=365000ps) : PC jumped to 0x10 — branch target ADDI x5,x0,1 executing
+[*]
+[dumpfile] "riscv.vcd"
+[savefile] "riscv_waves.gtkw"
+[timestart] 10000
+[size] 1600 960
+[pos] 0 0
+*-19.000000 15000 25000 335000 355000 365000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] riscv_tb.
+[treeopen] riscv_tb.dut.
+[sst_width] 300
+[signals_width] 300
+[sst_expanded] 1
+[sst_vpaned_height] 380
+@28
+riscv_tb.clk
+riscv_tb.reset
+@8
+-
+@28
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    PROGRAM COUNTER
+@28
+-  ──────────────────────────────────────
+@22
+riscv_tb.dut.pc[31:0]
+@22
+riscv_tb.dut.next_pc[31:0]
+@22
+riscv_tb.dut.pc_plus_4[31:0]
+@22
+riscv_tb.dut.branch_target[31:0]
+@28
+riscv_tb.dut.branch_taken
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    INSTRUCTION FETCH
+@28
+-  ──────────────────────────────────────
+@200
+riscv_tb.dut.instruction[31:0]
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    DECODE  (register indices + ALU op)
+@28
+-  ──────────────────────────────────────
+@22
+riscv_tb.dut.rs1[4:0]
+@22
+riscv_tb.dut.rs2[4:0]
+@22
+riscv_tb.dut.rd[4:0]
+@22
+riscv_tb.dut.alu_control[2:0]
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    REGISTER FILE  (read ports)
+@28
+-  ──────────────────────────────────────
+@22
+riscv_tb.dut.read_data1[31:0]
+@22
+riscv_tb.dut.read_data2[31:0]
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    IMMEDIATE GENERATOR
+@28
+-  ──────────────────────────────────────
+@22
+riscv_tb.dut.immediate[31:0]
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    ALU
+@28
+-  ──────────────────────────────────────
+@22
+riscv_tb.dut.alu_input_b[31:0]
+@22
+riscv_tb.dut.alu_result[31:0]
+@28
+riscv_tb.dut.zero
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    WRITEBACK
+@28
+-  ──────────────────────────────────────
+@22
+riscv_tb.dut.write_data[31:0]
+@28
+riscv_tb.dut.write_enable
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    DATA MEMORY
+@28
+-  ──────────────────────────────────────
+@22
+riscv_tb.dut.memory_read_data[31:0]
+@8
+-
+@28
+-  ──────────────────────────────────────
+@28
+-    CONTROL SIGNALS
+@28
+-  ──────────────────────────────────────
+@28
+riscv_tb.dut.reg_write
+@28
+riscv_tb.dut.alu_src
+@28
+riscv_tb.dut.mem_read
+@28
+riscv_tb.dut.mem_write
+@28
+riscv_tb.dut.mem_to_reg
+@28
+riscv_tb.dut.branch
+@28
+riscv_tb.dut.branch_ne
+@28
+riscv_tb.dut.jump
+@28
+riscv_tb.dut.jalr
+[pattern_trace] 1
+[pattern_trace] 0

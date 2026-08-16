@@ -1,64 +1,79 @@
 module control_unit (
-    input  logic [6:0] opcode,
-    input  logic [2:0] alu_control,
-    input  logic [2:0] funct3,
+    input  logic [31:0] instruction,
 
     output logic       reg_write,
     output logic       alu_src,
+    output logic       mem_read,
+    output logic       mem_write,
+    output logic       mem_to_reg,
     output logic       branch,
     output logic       branch_ne,
     output logic       jump,
     output logic       jalr
 );
 
-    always_comb begin
+    logic [6:0] opcode;
+    logic [2:0] funct3;
 
+    assign opcode = instruction[6:0];
+    assign funct3 = instruction[14:12];
+
+    always_comb begin
         reg_write = 1'b0;
         alu_src   = 1'b0;
+        mem_read  = 1'b0;
+        mem_write = 1'b0;
+        mem_to_reg = 1'b0;
         branch    = 1'b0;
         branch_ne = 1'b0;
         jump      = 1'b0;
         jalr      = 1'b0;
 
-        // R-type instructions: use register operand B
+        // R-type: ADD, SUB, AND, OR
         if (opcode == 7'b0110011) begin
             reg_write = 1'b1;
-            alu_src   = 1'b0;
         end
 
-        // I-type ADDI: use immediate as operand B
-        else if (opcode == 7'b0010011) begin
+        // I-type: ADDI
+        else if (opcode == 7'b0010011 && funct3 == 3'b000) begin
             reg_write = 1'b1;
             alu_src   = 1'b1;
         end
 
-        // I-type LW: use immediate address and memory data for writeback
-        else if (opcode == 7'b0000011) begin
-            reg_write = 1'b1;
-            alu_src   = 1'b1;
+        // I-type: LW
+        else if (opcode == 7'b0000011 && funct3 == 3'b010) begin
+            reg_write  = 1'b1;
+            alu_src    = 1'b1;
+            mem_read   = 1'b1;
+            mem_to_reg = 1'b1;
         end
 
-        // B-type BEQ/BNE: branch instruction
+        // S-type: SW
+        else if (opcode == 7'b0100011 && funct3 == 3'b010) begin
+            alu_src   = 1'b1;
+            mem_write = 1'b1;
+        end
+
+        // B-type: BEQ, BNE
         else if (opcode == 7'b1100011) begin
             if (funct3 == 3'b000)
-                branch = 1'b1;      // BEQ
+                branch = 1'b1;
             else if (funct3 == 3'b001)
-                branch_ne = 1'b1;   // BNE
+                branch_ne = 1'b1;
         end
 
-        // J-type JAL: jump and link
+        // J-type: JAL
         else if (opcode == 7'b1101111) begin
             reg_write = 1'b1;
             jump      = 1'b1;
         end
 
-        // I-type JALR: jump and link register
+        // I-type: JALR
         else if (opcode == 7'b1100111 && funct3 == 3'b000) begin
             reg_write = 1'b1;
-            alu_src   = 1'b1;   // Use immediate (rs1 + immediate)
+            alu_src   = 1'b1;
             jalr      = 1'b1;
         end
-
     end
 
 endmodule

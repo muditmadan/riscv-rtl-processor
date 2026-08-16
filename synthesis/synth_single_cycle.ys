@@ -1,0 +1,23 @@
+# ==============================================================
+# synth_single_cycle.ys
+# Synthesizes the single-cycle RV32I core logic.
+# Memories are port-based (external SRAMs).
+# Library: sky130_fd_sc_hd TT 25°C 1.8V
+# ==============================================================
+
+read_verilog -sv -D SYNTHESIS ../rtl/alu.sv
+read_verilog -sv -D SYNTHESIS ../rtl/decoder.sv
+read_verilog -sv -D SYNTHESIS ../rtl/control_unit.sv
+read_verilog -sv -D SYNTHESIS ../rtl/immediate_generator.sv
+read_verilog -sv -D SYNTHESIS ../rtl/register_file.sv
+read_verilog -sv -D SYNTHESIS riscv_core_sc.sv
+
+hierarchy -check -top riscv_core_sc
+synth -top riscv_core_sc -flatten
+
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib -D 10000
+clean
+
+tee -o results/single_cycle_synth.txt stat -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog results/single_cycle_netlist.v
