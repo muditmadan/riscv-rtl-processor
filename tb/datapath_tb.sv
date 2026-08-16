@@ -21,6 +21,12 @@ module datapath_tb;
         reset = 0;
 
         #200;
+        
+        // Print register file contents to verify JAL saved PC+4
+        $display("\n=== Register File Contents ===");
+        $display("x1=%0d", dut.reg_file.registers[1]);
+        $display("x5=%0d (should be 8, the return address)", dut.reg_file.registers[5]);
+        
         $finish;
     end
 

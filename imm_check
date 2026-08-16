@@ -1,0 +1,52 @@
+#! /opt/homebrew/Cellar/icarus-verilog/13.0/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/va_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/v2009.vpi";
+S_0x104c22e00 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x104c22f80 .scope module, "imm_check" "imm_check" 3 1;
+ .timescale 0 0;
+v0x104c266f0_0 .net "immediate", 31 0, v0x104c20cb0_0;  1 drivers
+v0x104c26790_0 .var "instruction", 31 0;
+S_0x104c25c90 .scope module, "dut" "immediate_generator" 3 5, 4 1 0, S_0x104c22f80;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "instruction";
+    .port_info 1 /OUTPUT 32 "immediate";
+v0x104c20cb0_0 .var "immediate", 31 0;
+v0x104c25fd0_0 .net "instruction", 31 0, v0x104c26790_0;  1 drivers
+E_0xb1c80c340 .event anyedge, v0x104c25fd0_0;
+    .scope S_0x104c25c90;
+T_0 ;
+Ewait_0 .event/or E_0xb1c80c340, E_0x0;
+    %wait Ewait_0;
+    %load/vec4 v0x104c25fd0_0;
+    %parti/s 1, 31, 6;
+    %replicate 20;
+    %load/vec4 v0x104c25fd0_0;
+    %parti/s 12, 20, 6;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0x104c20cb0_0, 0, 32;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x104c22f80;
+T_1 ;
+    %pushi/vec4 5440403, 0, 32;
+    %store/vec4 v0x104c26790_0, 0, 32;
+    %delay 1, 0;
+    %vpi_call/w 3 13 "$display", "instruction=%h immediate=%0d immediate_hex=%h", v0x104c26790_0, v0x104c266f0_0, v0x104c266f0_0 {0 0 0};
+    %vpi_call/w 3 14 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/tmp/imm_check.sv";
+    "rtl/immediate_generator.sv";

@@ -5,7 +5,10 @@ module decoder (
     output logic [4:0]  rs2,
     output logic [4:0]  rd,
 
-    output logic [2:0]  alu_control
+    output logic [2:0]  alu_control,
+    output logic        mem_read,
+    output logic        mem_write,
+    output logic        mem_to_reg
 );
 
     logic [6:0] opcode;
@@ -23,8 +26,11 @@ module decoder (
     // Decode the instruction
     always_comb begin
 
-        // Default: no operation
+        // Defaults
         alu_control = 3'b000;
+        mem_read    = 1'b0;
+        mem_write   = 1'b0;
+        mem_to_reg  = 1'b0;
 
         // R-type instruction
         if (opcode == 7'b0110011) begin
@@ -48,6 +54,46 @@ module decoder (
             else if (funct3 == 3'b110)
                 alu_control = 3'b100;
 
+        end
+
+        // I-type instruction: ADDI
+        else if (opcode == 7'b0010011) begin
+
+            if (funct3 == 3'b000)
+                alu_control = 3'b001; // ADDI behaves like ADD
+
+        end
+
+        // I-type instruction: LW
+        else if (opcode == 7'b0000011) begin
+
+            if (funct3 == 3'b010) begin
+                mem_read   = 1'b1;
+                mem_to_reg = 1'b1;
+            end
+
+        end
+
+        // S-type instruction: SW
+        else if (opcode == 7'b0100011) begin
+
+            if (funct3 == 3'b010)
+                mem_write = 1'b1;
+
+        end
+
+        // B-type instruction: BEQ/BNE
+        else if (opcode == 7'b1100011) begin
+
+            if (funct3 == 3'b000 || funct3 == 3'b001)
+                alu_control = 3'b010; // SUB to compute zero flag for both BEQ and BNE
+
+        end
+
+        // I-type instruction: JALR
+        else if (opcode == 7'b1100111) begin
+            if (funct3 == 3'b000)
+                alu_control = 3'b001; // ADD for rs1 + immediate
         end
 
     end
